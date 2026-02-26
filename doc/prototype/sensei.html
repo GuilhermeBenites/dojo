@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nossos Senseis - Dojo Luciano dos Santos</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f20d0d",
+                        "primary-dark": "#c40a0a",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#221010",
+                        "text-main": "#181111",
+                        "text-muted": "#6b5858",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-text-main dark:text-slate-100 selection:bg-primary/30">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-white/95 backdrop-blur-sm dark:bg-[#1a0f0f]/95 dark:border-white/5">
+<div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
+<div class="flex items-center gap-3">
+<div class="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">sports_martial_arts</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-text-main dark:text-white">Dojo Luciano dos Santos</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Início</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Sobre</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Horários</a>
+<a class="text-sm font-bold text-primary" href="#">Nossos Senseis</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Galeria</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contato</a>
+</nav>
+<div class="hidden md:flex">
+<button class="group relative flex h-10 items-center justify-center overflow-hidden rounded-lg bg-primary px-6 text-sm font-bold text-white transition-all hover:bg-primary-dark">
+<span class="relative z-10 flex items-center gap-2">
+                            Agendar Aula
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</span>
+</button>
+</div>
+<!-- Mobile Menu Button -->
+<button class="flex md:hidden items-center justify-center text-text-main dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Profile Section -->
+<section class="relative px-6 py-16 md:py-24 lg:px-8">
+<div class="mx-auto max-w-7xl">
+<div class="mb-12 flex flex-col items-center text-center">
+<span class="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary">
+                            Mestre &amp; Fundador
+                        </span>
+<h2 class="text-4xl font-black tracking-tight text-text-main dark:text-white md:text-5xl lg:text-6xl">
+                            Sensei Luciano dos Santos
+                        </h2>
+<div class="mt-4 h-1 w-24 rounded-full bg-primary"></div>
+</div>
+<div class="grid gap-12 lg:grid-cols-12 lg:gap-16 items-center">
+<!-- Image Column -->
+<div class="relative lg:col-span-5 lg:order-last">
+<div class="absolute -inset-4 rounded-2xl bg-gradient-to-tr from-primary/20 to-transparent blur-2xl opacity-70"></div>
+<div class="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-gray-100 shadow-2xl">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
+<div class="absolute bottom-6 left-6 right-6 z-20 text-white">
+<p class="text-lg font-bold">Faixa Preta 5º Dan</p>
+<p class="text-sm opacity-90">Shotokan Karate International</p>
+</div>
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Sensei Luciano wearing a white karate gi in a focused stance" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDFpBzKXfJIKNRExcdf0Zr38-fsPdCSH5GtqRp7CpDXnaWBaCdb3b0wr_BEiOe8fFMGEtzIYfaoljoTWgFzgxiWyL_kcYPtp7--CV2X_e0xLyCDM4mVlhZKHuhzyWykntPui5dz7bHVavzbw438qiYCbqdKvToklFM5fo5LVNb9_B6LtXrRWcZ6et70nUaU4jzciu54wWxVj4-D97qgpgRjtJ2VjBCWJVRm7YcOOSAMLi8e_8LToebqrE85pKNAH3gGzv47kgK4tWnM');">
+</div>
+</div>
+</div>
+<!-- Content Column -->
+<div class="flex flex-col gap-8 lg:col-span-7">
+<div class="prose prose-lg dark:prose-invert">
+<p class="text-lg leading-relaxed text-text-muted dark:text-slate-300">
+                                    Com mais de 25 anos de dedicação ininterrupta ao Karate Shotokan, o Sensei Luciano acredita que o verdadeiro dojo está dentro de cada um de nós. Sua jornada começou aos 6 anos de idade, e desde então, ele tem transformado vidas através da disciplina marcial.
+                                </p>
+<p class="text-lg leading-relaxed text-text-muted dark:text-slate-300">
+                                    Sua filosofia de ensino foca não apenas na técnica perfeita, mas no desenvolvimento do caráter. "Disciplina, respeito e superação constante" são os pilares que sustentam cada aula ministrada no dojo.
+                                </p>
+</div>
+<blockquote class="border-l-4 border-primary bg-white dark:bg-white/5 p-6 shadow-soft rounded-r-lg">
+<div class="mb-4 text-primary">
+<span class="material-symbols-outlined text-4xl">format_quote</span>
+</div>
+<p class="text-xl font-medium italic text-text-main dark:text-white">
+                                    O Karate não é sobre ser melhor que o outro, é sobre ser melhor do que você era ontem. O verdadeiro oponente está dentro de você.
+                                </p>
+<footer class="mt-4 text-sm font-bold text-text-muted dark:text-slate-400">
+                                    — Sensei Luciano
+                                </footer>
+</blockquote>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-4 text-base font-bold text-white shadow-lg transition-all hover:bg-primary-dark hover:shadow-xl hover:-translate-y-0.5">
+                                    Conheça a História Completa
+                                </button>
+<button class="inline-flex items-center justify-center rounded-lg border-2 border-primary/20 bg-transparent px-8 py-4 text-base font-bold text-text-main hover:border-primary hover:bg-primary/5 dark:text-white transition-all">
+<span class="material-symbols-outlined mr-2">mail</span>
+                                    Fale com o Mestre
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Instructors Grid Section -->
+<section class="bg-white px-6 py-20 dark:bg-white/5 lg:px-8">
+<div class="mx-auto max-w-7xl">
+<div class="mb-16 text-center">
+<h2 class="mb-4 text-3xl font-bold tracking-tight text-text-main dark:text-white md:text-4xl">
+                            Equipe de Instrutores
+                        </h2>
+<p class="mx-auto max-w-2xl text-lg text-text-muted dark:text-slate-300">
+                            Nossa equipe é formada por profissionais altamente qualificados, cada um trazendo uma especialidade única para enriquecer seu aprendizado.
+                        </p>
+</div>
+<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+<!-- Instructor Card 1 -->
+<div class="group flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-background-light shadow-soft transition-all hover:border-primary/20 hover:shadow-lg dark:border-white/5 dark:bg-[#2a1a1a]">
+<div class="relative aspect-square overflow-hidden bg-gray-200">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Portrait of Sensei Anna smiling in a dojo setting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDIosygA2Jje56ugPwcQZK4utH7WLK7SKwl_cVTRkKDvV1-LN7T5FbnFmjsxBwZD4jpddv8WNBotL2trHfHVL7UTPlJq4c8GbHVg_Pe5NdlCoMl3lS0lm4VvJtMlygAwn5ZxD5m3Zo0qAzpnvmIpGkVsAbL1syGqUgRsO4oFUvhC8a_3ci8D3Urc40ZzzHL6b4Q6ETCqrikCpPMQ4umURGCZt-C6AnQZT2oBoMWlXLMX2qe9W3HajagJXtA938W9a2Ido6N4NEiGI1u');">
+</div>
+<div class="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-primary shadow-sm backdrop-blur-sm">
+                                    Infantil
+                                </div>
+</div>
+<div class="flex flex-1 flex-col p-6">
+<h3 class="mb-1 text-xl font-bold text-text-main dark:text-white">Sensei Anna Santos</h3>
+<p class="mb-4 text-sm font-medium text-primary">3º Dan - Especialista Pedagógica</p>
+<p class="text-sm leading-relaxed text-text-muted dark:text-slate-400">
+                                    Com formação em Educação Física e especialização em desenvolvimento motor infantil, Anna torna o aprendizado do Karate lúdico e disciplinado para crianças.
+                                </p>
+<div class="mt-auto pt-6">
+<a class="inline-flex items-center text-sm font-bold text-text-main hover:text-primary dark:text-white transition-colors" href="#">
+                                        Ver Perfil
+                                        <span class="material-symbols-outlined ml-1 text-lg">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Instructor Card 2 -->
+<div class="group flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-background-light shadow-soft transition-all hover:border-primary/20 hover:shadow-lg dark:border-white/5 dark:bg-[#2a1a1a]">
+<div class="relative aspect-square overflow-hidden bg-gray-200">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Sensei Wynner demonstrating a kata technique" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA8nnrJM0ENCyHww4Pe43-4SRsrnwxHq0phyMIxOA5fs8l9lKM-bHzGxkOK3pCO8mS9Xr2kwvC0a3bruWRFHxh8Z3UxRE08kxloRJX4EnsfbPm7sa0sPoXIgtwinX_I10M6vdG6VulDdzWMqXbzqCIpG_RJeg0Dn2wmNLh9qbuXWZZHxblm_I2gTt-cVRb-jOX-OXbBUEokJRHz32ORvsR6p4mFT2YNLJqlNNaw0YAVBCcfBsnFd6LhXxkHTbqNhtfedNfQS6wil3kc');">
+</div>
+<div class="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-primary shadow-sm backdrop-blur-sm">
+                                    Kata &amp; Técnica
+                                </div>
+</div>
+<div class="flex flex-1 flex-col p-6">
+<h3 class="mb-1 text-xl font-bold text-text-main dark:text-white">Sensei Wynner Armoa</h3>
+<p class="mb-4 text-sm font-medium text-primary">4º Dan - Técnico Nacional</p>
+<p class="text-sm leading-relaxed text-text-muted dark:text-slate-400">
+                                    Meticuloso e detalhista, Sensei Wynner foca na perfeição dos movimentos (Kata) e na aplicação técnica (Bunkai), elevando o nível técnico do dojo.
+                                </p>
+<div class="mt-auto pt-6">
+<a class="inline-flex items-center text-sm font-bold text-text-main hover:text-primary dark:text-white transition-colors" href="#">
+                                        Ver Perfil
+                                        <span class="material-symbols-outlined ml-1 text-lg">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Instructor Card 3 -->
+<div class="group flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-background-light shadow-soft transition-all hover:border-primary/20 hover:shadow-lg dark:border-white/5 dark:bg-[#2a1a1a]">
+<div class="relative aspect-square overflow-hidden bg-gray-200">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Sensei Leticia in a dynamic kumite stance" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDqxwiuYSn8cowNjVdejtBj0QScYltfSrh9vY_ah43Nl0r3GK_dtzJfdOX_vzUbZfNi_A5E_B4sESfs6st9CRZTYgA98Q8D_IvrNUF9IS2V56eMGwJrtIXXHaCfvoZn5XxQVrGtydXWOA8I07419QuUXY4exBpi5wc94C5Mg8UH-3vPag9CFPQeNl1U05DHj4Ijz27YuwTGnwc92raiyfrkmutaUDvZRZlq84KlmpGHYN8RA7Q4pvNBsV9DJmF9HYgcl4ZWCIWmiHJG');">
+</div>
+<div class="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-primary shadow-sm backdrop-blur-sm">
+                                    Alto Rendimento
+                                </div>
+</div>
+<div class="flex flex-1 flex-col p-6">
+<h3 class="mb-1 text-xl font-bold text-text-main dark:text-white">Sensei Letícia Mendez</h3>
+<p class="mb-4 text-sm font-medium text-primary">3º Dan - Ex-Atleta Olímpica</p>
+<p class="text-sm leading-relaxed text-text-muted dark:text-slate-400">
+                                    Responsável pela equipe de competição, Letícia traz sua experiência internacional para preparar atletas de alto rendimento com foco em Kumite.
+                                </p>
+<div class="mt-auto pt-6">
+<a class="inline-flex items-center text-sm font-bold text-text-main hover:text-primary dark:text-white transition-colors" href="#">
+                                        Ver Perfil
+                                        <span class="material-symbols-outlined ml-1 text-lg">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Stub -->
+<footer class="bg-white border-t border-primary/10 py-8 text-center text-sm text-text-muted dark:bg-[#1a0f0f] dark:border-white/5">
+<p>© 2023 Dojo Luciano dos Santos. Todos os direitos reservados.</p>
+</footer>
+</div>
+</body></html>

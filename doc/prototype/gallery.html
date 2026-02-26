@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dojo Authentic Photo Gallery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#f20d0d",
+              "background-light": "#f8f5f5",
+              "background-dark": "#221010",
+              "neutral-dark": "#181111",
+              "neutral-light": "#f5f0f0",
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"],
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem", 
+              "lg": "0.5rem", 
+              "xl": "0.75rem", 
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }.masonry-grid {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-neutral-dark dark:text-white font-display overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-50 w-full border-b border-neutral-light dark:border-white/10 bg-white/95 dark:bg-background-dark/95 backdrop-blur-sm px-6 py-4">
+<div class="mx-auto flex max-w-7xl items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined !text-2xl">sports_martial_arts</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-neutral-dark dark:text-white">Dojo Luciano dos Santos</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Início</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Sobre Nós</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Aulas</a>
+<a class="text-sm font-medium text-primary font-bold" href="#">Galeria</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contato</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white transition-transform hover:scale-105 active:scale-95 shadow-md shadow-primary/20">
+                    Agende uma Aula Grátis
+                </button>
+<button class="md:hidden p-2 text-neutral-dark dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<section class="relative px-6 pt-16 pb-12 text-center md:pt-24 md:pb-16">
+<div class="mx-auto max-w-4xl">
+<h1 class="mb-4 text-4xl font-black leading-tight tracking-tight text-neutral-dark dark:text-white sm:text-5xl md:text-6xl">
+                    Nossa Jornada: Dojo Luciano dos Santos
+                </h1>
+<p class="mx-auto max-w-2xl text-lg text-neutral-dark/70 dark:text-white/70">
+                    Explore a disciplina, o companheirismo e o espírito que definem nosso dojo. Das aulas com Sensei Luciano às cerimônias de faixa.
+                </p>
+</div>
+</section>
+<section class="sticky top-[73px] z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm px-6 py-4 border-b border-transparent transition-all duration-200" id="filter-bar">
+<div class="mx-auto flex max-w-7xl flex-wrap justify-center gap-3">
+<button class="group flex items-center gap-2 rounded-full bg-primary px-6 py-2 text-sm font-semibold text-white shadow-md shadow-primary/20 transition-all hover:bg-primary/90">
+<span>Todos</span>
+</button>
+<button class="group flex items-center gap-2 rounded-full bg-white dark:bg-white/10 px-6 py-2 text-sm font-medium text-neutral-dark dark:text-white ring-1 ring-neutral-200 dark:ring-white/10 transition-all hover:bg-neutral-light dark:hover:bg-white/20 hover:ring-neutral-300">
+<span>Sensei Luciano</span>
+</button>
+<button class="group flex items-center gap-2 rounded-full bg-white dark:bg-white/10 px-6 py-2 text-sm font-medium text-neutral-dark dark:text-white ring-1 ring-neutral-200 dark:ring-white/10 transition-all hover:bg-neutral-light dark:hover:bg-white/20 hover:ring-neutral-300">
+<span>Cerimônias de Faixa</span>
+</button>
+<button class="group flex items-center gap-2 rounded-full bg-white dark:bg-white/10 px-6 py-2 text-sm font-medium text-neutral-dark dark:text-white ring-1 ring-neutral-200 dark:ring-white/10 transition-all hover:bg-neutral-light dark:hover:bg-white/20 hover:ring-neutral-300">
+<span>Aulas Infantis</span>
+</button>
+<button class="group flex items-center gap-2 rounded-full bg-white dark:bg-white/10 px-6 py-2 text-sm font-medium text-neutral-dark dark:text-white ring-1 ring-neutral-200 dark:ring-white/10 transition-all hover:bg-neutral-light dark:hover:bg-white/20 hover:ring-neutral-300">
+<span>Dojo</span>
+</button>
+</div>
+</section>
+<section class="px-6 py-8 md:py-12">
+<div class="mx-auto max-w-7xl masonry-grid">
+<div class="masonry-item group relative overflow-hidden rounded-xl bg-neutral-200 dark:bg-white/5 shadow-sm transition-all hover:shadow-lg">
+<div class="aspect-[3/4] w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Sensei Luciano correcting a student's stance" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDD8J9hdRwoPIHpxYofJC7nEa2v-xp_89PocoGYhAF81npcHPQiXyqrpqv8FnRisT95yKoUdNHWn4ElqyTSuzYwtf6LlVTqNraqjg5wPX8aTj20VVgish-u4RxkdyzBgeA7Xza_3_i8t46rFIsSC_XIU4KtBWTCWFe8WwYIxNhYMCghe5Rt-HHQqppx-SRKFoS6FdWssm8dI8fLFK-1W8UrNR7NZFtz-qA5iR-tVy_uH81h-uZrnfaSoAtD3kWOwmE10pY9ZA_wDxes');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+<div class="absolute bottom-0 left-0 p-6">
+<span class="mb-2 inline-block rounded bg-primary/90 px-2 py-1 text-xs font-bold uppercase tracking-wider text-white">Instrução</span>
+<h3 class="text-lg font-bold text-white">Sensei Luciano</h3>
+</div>
+</div>
+<div class="absolute right-4 top-4 flex h-10 w-10 translate-y-[-20px] items-center justify-center rounded-full bg-white/20 text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-primary">
+<span class="material-symbols-outlined">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item group relative overflow-hidden rounded-xl bg-neutral-200 dark:bg-white/5 shadow-sm transition-all hover:shadow-lg">
+<div class="aspect-[4/3] w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Group of students practicing kata" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB615JE02HREZHKAkRt8U9ViNm71pZ8eao15fJ1LiJ0BchsvBR48ZvC0b6HqzUEuTuA-B9HgMOyrxGYx4aDFbewiTp6WtZ-zjkxpUXpuEq6bgZPBS9Hkc4FH53TBSkkjHqtKTa-mw2TwEzSFnriIbca6ZDB8TMK2w80aA3PaFGQB-FydZOw90A08a-SPZzFs4wK5P1-Fwu9sqGIosN_Xci8bvbu118sVkZePhWOwygL8mnLxjGTxDxU5U1R6kmESCV4qLVXEf-_4JVR');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+<div class="absolute bottom-0 left-0 p-6">
+<span class="mb-2 inline-block rounded bg-primary/90 px-2 py-1 text-xs font-bold uppercase tracking-wider text-white">Treino</span>
+<h3 class="text-lg font-bold text-white">Kata em Grupo</h3>
+</div>
+</div>
+<div class="absolute right-4 top-4 flex h-10 w-10 translate-y-[-20px] items-center justify-center rounded-full bg-white/20 text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-primary">
+<span class="material-symbols-outlined">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item group relative overflow-hidden rounded-xl bg-neutral-200 dark:bg-white/5 shadow-sm transition-all hover:shadow-lg">
+<div class="aspect-square w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Kids karate class group photo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD5l7NA7MgorEuZp3ZQH7IajEQmXlj6ImvpyVJME93WY6uy5jty5Dwk8___sQv4xq_zOWw01ACNBXXWNt0NnJGBfuVrSlgqH8J3Oxt79UUGThTbjrEmV-k39JRykAMmVb1qdwlQHT8LriUoHArw9KQBO5Jou2bAqBztq4tO4IYKT08XOsTtmVeBmDtH-YLhS5cI-mkSi38pTn2E7XVRyFboayiXQl3bFvgvp1_Lsz1Ffv-33rxpbqiac5tEcmSYuIRqnPyhti87IFj7');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+<div class="absolute bottom-0 left-0 p-6">
+<span class="mb-2 inline-block rounded bg-primary/90 px-2 py-1 text-xs font-bold uppercase tracking-wider text-white">Infantil</span>
+<h3 class="text-lg font-bold text-white">Pequenos Guerreiros</h3>
+</div>
+</div>
+<div class="absolute right-4 top-4 flex h-10 w-10 translate-y-[-20px] items-center justify-center rounded-full bg-white/20 text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-primary">
+<span class="material-symbols-outlined">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item group relative overflow-hidden rounded-xl bg-neutral-200 dark:bg-white/5 shadow-sm transition-all hover:shadow-lg">
+<div class="aspect-[9/16] w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Student receiving new belt" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAer03cwX0r841vAMhlAOuJlImeB76uMFp5nurShLSWS8ALPBlD32AtUaJ0-qLKZeFb9DmA1USp-yrZPytzvMhXyGGLVKuAUlQPWtAtgJQ7UbH5ExOGUu5SH-I-DrK2XHS2j-RbTcMVB2y4b-qhzKMEeKQdg_dB7nbJVbMCP6WtmbB-Hgy43ZjEv_NUWwK8o1dNmjNZD7w-PANevz-PPF6SM4OOZg_LtBL6Ohtvcjc0g7Vv6JS8hDuz9onngBEYOreap8ha85rJcmPQ');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+<div class="absolute bottom-0 left-0 p-6">
+<span class="mb-2 inline-block rounded bg-primary/90 px-2 py-1 text-xs font-bold uppercase tracking-wider text-white">Cerimônia</span>
+<h3 class="text-lg font-bold text-white">Graduação</h3>
+</div>
+</div>
+<div class="absolute right-4 top-4 flex h-10 w-10 translate-y-[-20px] items-center justify-center rounded-full bg-white/20 text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-primary">
+<span class="material-symbols-outlined">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item group relative overflow-hidden rounded-xl bg-neutral-200 dark:bg-white/5 shadow-sm transition-all hover:shadow-lg">
+<div class="aspect-[16/9] w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Wide shot of dojo interior" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4wKpoo67VS5JDpfB123GMSxOj9HvYT0jf9afvLFlEWUsjBARnpa6-bLMKLLt15U_gE-efST0SMqBGX8zkxnmCs10b6H5jw_Esc8CfOro6C6_Ji6yhiuGLxPq1wg5IIgnEwSmpjvZAcrNl1ssu3OmBdZOxLNTz8YyGc2OyCRByZ4Je6lWpWJg3kb_NICnHkTcTxblY6XhJSs5M2YAvL690f7-rlCBwU5vpB_SAgJ9-XpqKJTbtlPjCDgqGhHw003KMXdzqr8Wf_exM');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+<div class="absolute bottom-0 left-0 p-6">
+<span class="mb-2 inline-block rounded bg-primary/90 px-2 py-1 text-xs font-bold uppercase tracking-wider text-white">Instalações</span>
+<h3 class="text-lg font-bold text-white">Nosso Tatame</h3>
+</div>
+</div>
+<div class="absolute right-4 top-4 flex h-10 w-10 translate-y-[-20px] items-center justify-center rounded-full bg-white/20 text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-primary">
+<span class="material-symbols-outlined">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item group relative overflow-hidden rounded-xl bg-neutral-200 dark:bg-white/5 shadow-sm transition-all hover:shadow-lg">
+<div class="aspect-square w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Close up of belt tying" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDiQ9lMnPKsw0F1UGJC0uV8_hdALS0yjouB4rsqzw5XvtG2RZb7RcJHnjpgVkPTfkTd4jRSLAywAzqCqwCJOXyBs5Z2HmSHtWmYRBUg-RKFNnjqdZU2egm3rE6aK8EmHDKdk3719u89SHb1Il2qqzqXwy4ZL-bmgPM-uSvQnkzBoOkRdCNtyfjYBt4yYXYTt8XryNIirzMmniI2Sw9d4JFfLBMWbc9JqsyEcVQwVZYpxPCkDWArMcYZCq1w0Jfxdgd5aItzOBqfHuU6');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+<div class="absolute bottom-0 left-0 p-6">
+<span class="mb-2 inline-block rounded bg-primary/90 px-2 py-1 text-xs font-bold uppercase tracking-wider text-white">Foco</span>
+<h3 class="text-lg font-bold text-white">Preparação Mental</h3>
+</div>
+</div>
+<div class="absolute right-4 top-4 flex h-10 w-10 translate-y-[-20px] items-center justify-center rounded-full bg-white/20 text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-primary">
+<span class="material-symbols-outlined">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item group relative overflow-hidden rounded-xl bg-neutral-200 dark:bg-white/5 shadow-sm transition-all hover:shadow-lg">
+<div class="aspect-[3/4] w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="High kick drill" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBm54XZsZNPmyHrK3t7MMeQwSPjmeIc0ZO5X4jgzEZ4iFmWvRgpuVpjFX1FU_9Aftw2uaZgshVMire6lR5wGfDrEy7sTtCPlZXdmLjwdt5PSh3kCBFlriVKM2q9Jw6k4yXNRA-S1liSO1SH6IucSN7WBsXDUyvlxi7z7QQ7gN2Tkg04_WStQ0R2AgfDVoZj0d-FEGNCsJ6f6coFpBMMT9jKM5tQkV6yOR3oXvXcYSbFpZn7wfl1_5KTA8mtJocUZdY7KbMbaLCjDQlI');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+<div class="absolute bottom-0 left-0 p-6">
+<span class="mb-2 inline-block rounded bg-primary/90 px-2 py-1 text-xs font-bold uppercase tracking-wider text-white">Técnica</span>
+<h3 class="text-lg font-bold text-white">Treino de Chute</h3>
+</div>
+</div>
+<div class="absolute right-4 top-4 flex h-10 w-10 translate-y-[-20px] items-center justify-center rounded-full bg-white/20 text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-primary">
+<span class="material-symbols-outlined">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item group relative overflow-hidden rounded-xl bg-neutral-200 dark:bg-white/5 shadow-sm transition-all hover:shadow-lg">
+<div class="aspect-[16/9] w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Black belt detail" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC-ZS1n73cWNRMTWYqwcP2GVufkHXghM3YNaTiNhtLqdCu3eqlVHTuYZV8qtOa5gHdmySVSqWQ9872m9Iu2aKEXfnT8st9kkCFkg5ys7MSlPkXmMdWJNMi2TeDaCqBgvM99Rn5M_vJhStStuNZ27_ckj32g-e_MIlEcIemGF-Roa3kVKNoNhGCXKwxQjURj1aUm8vm6Jzvt8a2iZm87OSq1VjzrQuBF4gSifPfL_H1uO19OYOYZqbslDenZklalhB6lPHgwHSa16vrY');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+<div class="absolute bottom-0 left-0 p-6">
+<span class="mb-2 inline-block rounded bg-primary/90 px-2 py-1 text-xs font-bold uppercase tracking-wider text-white">Conquista</span>
+<h3 class="text-lg font-bold text-white">A Faixa Preta</h3>
+</div>
+</div>
+<div class="absolute right-4 top-4 flex h-10 w-10 translate-y-[-20px] items-center justify-center rounded-full bg-white/20 text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-primary">
+<span class="material-symbols-outlined">zoom_in</span>
+</div>
+</div>
+</div>
+</section>
+<section class="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
+<div class="relative overflow-hidden rounded-2xl bg-neutral-dark dark:bg-neutral-light shadow-2xl">
+<div class="absolute inset-0 opacity-20 dark:opacity-10">
+<svg class="h-full w-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+<path class="text-primary" d="M0 100 L100 0 L100 100 Z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="relative flex flex-col items-center justify-between gap-8 px-6 py-12 text-center md:flex-row md:px-12 md:py-16 md:text-left">
+<div class="max-w-2xl">
+<h2 class="text-3xl font-black tracking-tight text-white dark:text-neutral-dark sm:text-4xl">
+                            Pronto para começar sua jornada?
+                        </h2>
+<p class="mt-4 text-lg text-gray-300 dark:text-gray-600">
+                            Junte-se à nossa comunidade hoje e descubra seu verdadeiro potencial. Experimente a atmosfera do dojo. A primeira aula é por nossa conta!
+                        </p>
+</div>
+<div class="flex shrink-0 flex-col gap-4 sm:flex-row">
+<button class="inline-flex items-center justify-center rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-lg transition-all hover:bg-red-600 hover:shadow-xl hover:shadow-primary/30 active:translate-y-0.5">
+                            Agende sua Aula Grátis
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-neutral-light dark:border-white/10 bg-white dark:bg-background-dark py-10">
+<div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
+<p class="text-sm text-gray-500 dark:text-gray-400">© 2024 Dojo Luciano dos Santos. Todos os direitos reservados.</p>
+<div class="flex gap-6">
+<a class="text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">thumb_up</span>
+</a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">photo_camera</span>
+</a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>

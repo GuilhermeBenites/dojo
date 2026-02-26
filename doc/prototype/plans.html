@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Karate Dojo - Planos e Preços</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f20d0d",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-10 py-3">
+<div class="flex items-center gap-4 text-slate-900 dark:text-slate-100">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-4xl">sports_martial_arts</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em]">Dojo Luciano dos Santos</h2>
+</div>
+<div class="flex items-center gap-8">
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-slate-900 dark:text-slate-100 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Início</a>
+<a class="text-slate-900 dark:text-slate-100 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Sobre</a>
+<a class="text-slate-900 dark:text-slate-100 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Aulas</a>
+<a class="text-slate-900 dark:text-slate-100 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Instrutores</a>
+<a class="text-slate-900 dark:text-slate-100 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Contato</a>
+</nav>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-red-700 transition-colors text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Aula Experimental</span>
+</button>
+</div>
+</header>
+<main class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-40 flex flex-1 justify-center py-10">
+<div class="layout-content-container flex flex-col max-w-[1100px] flex-1">
+<div class="text-center mb-10 space-y-2">
+<h2 class="text-slate-900 dark:text-slate-100 text-3xl md:text-4xl font-extrabold leading-tight tracking-[-0.015em]">Planos e Valores</h2>
+<p class="text-slate-500 dark:text-slate-400 text-lg">Confira nossos planos de fidelidade e valores detalhados.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 py-3 items-stretch mb-12">
+<div class="flex flex-col gap-4 rounded-xl border border-solid border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-1 border-b border-slate-100 dark:border-slate-700 pb-4">
+<h3 class="text-slate-900 dark:text-slate-100 text-2xl font-bold leading-tight">3x por Semana</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Treino intenso para máxima evolução</p>
+</div>
+<div class="flex flex-col gap-3 flex-1">
+<div class="flex justify-between items-center py-2 border-b border-dashed border-slate-200 dark:border-slate-700">
+<span class="text-slate-700 dark:text-slate-300 font-medium">Mês</span>
+<span class="text-primary font-bold text-lg">R$ 300,00</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-dashed border-slate-200 dark:border-slate-700">
+<span class="text-slate-700 dark:text-slate-300 font-medium">Trimestral</span>
+<span class="text-slate-900 dark:text-slate-100 font-bold">R$ 280,00<span class="text-xs font-normal text-slate-500">/mês</span></span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-dashed border-slate-200 dark:border-slate-700">
+<span class="text-slate-700 dark:text-slate-300 font-medium">Semestral</span>
+<span class="text-slate-900 dark:text-slate-100 font-bold">R$ 270,00<span class="text-xs font-normal text-slate-500">/mês</span></span>
+</div>
+<div class="flex justify-between items-center py-2">
+<span class="text-slate-700 dark:text-slate-300 font-medium">Anual</span>
+<span class="text-slate-900 dark:text-slate-100 font-bold">R$ 250,00<span class="text-xs font-normal text-slate-500">/mês</span></span>
+</div>
+</div>
+<button class="w-full mt-4 cursor-pointer items-center justify-center rounded-lg h-12 px-4 bg-primary hover:bg-red-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all">
+            Escolher Plano
+        </button>
+</div>
+<div class="relative flex flex-col gap-4 rounded-xl border-2 border-solid border-primary bg-white dark:bg-slate-800 p-6 shadow-lg transform md:-translate-y-2 z-10">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+            Recomendado
+        </div>
+<div class="flex flex-col gap-1 border-b border-slate-100 dark:border-slate-700 pb-4 pt-2">
+<h3 class="text-slate-900 dark:text-slate-100 text-2xl font-bold leading-tight">2x por Semana</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Equilíbrio ideal de rotina</p>
+</div>
+<div class="flex flex-col gap-3 flex-1">
+<div class="flex justify-between items-center py-2 border-b border-dashed border-slate-200 dark:border-slate-700">
+<span class="text-slate-700 dark:text-slate-300 font-medium">Mês</span>
+<span class="text-primary font-bold text-lg">R$ 280,00</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-dashed border-slate-200 dark:border-slate-700">
+<span class="text-slate-700 dark:text-slate-300 font-medium">Trimestral</span>
+<span class="text-slate-900 dark:text-slate-100 font-bold">R$ 270,00<span class="text-xs font-normal text-slate-500">/mês</span></span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-dashed border-slate-200 dark:border-slate-700">
+<span class="text-slate-700 dark:text-slate-300 font-medium">Semestral</span>
+<span class="text-slate-900 dark:text-slate-100 font-bold">R$ 250,00<span class="text-xs font-normal text-slate-500">/mês</span></span>
+</div>
+<div class="flex justify-between items-center py-2">
+<span class="text-slate-700 dark:text-slate-300 font-medium">Anual</span>
+<span class="text-slate-900 dark:text-slate-100 font-bold">R$ 240,00<span class="text-xs font-normal text-slate-500">/mês</span></span>
+</div>
+</div>
+<button class="w-full mt-4 cursor-pointer items-center justify-center rounded-lg h-12 px-4 bg-primary hover:bg-red-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all">
+            Escolher Plano
+        </button>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-solid border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-1 border-b border-slate-100 dark:border-slate-700 pb-4">
+<h3 class="text-slate-900 dark:text-slate-100 text-2xl font-bold leading-tight">Família</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Treinem juntos com desconto</p>
+</div>
+<div class="flex flex-col gap-3 flex-1">
+<div class="flex justify-between items-center py-2 border-b border-dashed border-slate-200 dark:border-slate-700">
+<span class="text-slate-700 dark:text-slate-300 font-medium">Mês</span>
+<span class="text-primary font-bold text-lg">R$ 250,00</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-dashed border-slate-200 dark:border-slate-700">
+<span class="text-slate-700 dark:text-slate-300 font-medium">Trimestral</span>
+<span class="text-slate-900 dark:text-slate-100 font-bold">R$ 240,00<span class="text-xs font-normal text-slate-500">/mês</span></span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-dashed border-slate-200 dark:border-slate-700">
+<span class="text-slate-700 dark:text-slate-300 font-medium">Semestral</span>
+<span class="text-slate-900 dark:text-slate-100 font-bold">R$ 225,00<span class="text-xs font-normal text-slate-500">/mês</span></span>
+</div>
+<div class="flex justify-between items-center py-2">
+<span class="text-slate-700 dark:text-slate-300 font-medium">Anual</span>
+<span class="text-slate-900 dark:text-slate-100 font-bold">R$ 215,00<span class="text-xs font-normal text-slate-500">/mês</span></span>
+</div>
+</div>
+<button class="w-full mt-4 cursor-pointer items-center justify-center rounded-lg h-12 px-4 bg-primary hover:bg-red-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all">
+            Escolher Plano
+        </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 mb-16">
+<div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-8 shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">military_tech</span>
+<h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">Exame de Faixa</h3>
+</div>
+<div class="space-y-4">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-slate-700/50">
+<span class="font-semibold text-slate-800 dark:text-slate-200">Branca até Verde</span>
+<div class="text-right">
+<span class="block text-primary font-bold">R$ 210,00</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Família: R$ 200,00</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-slate-700/50">
+<span class="font-semibold text-slate-800 dark:text-slate-200">Verde para Roxa</span>
+<div class="text-right">
+<span class="block text-primary font-bold">R$ 250,00</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Família: R$ 230,00</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-slate-700/50">
+<span class="font-semibold text-slate-800 dark:text-slate-200">Roxa para Marrom</span>
+<div class="text-right">
+<span class="block text-primary font-bold">R$ 300,00</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Família: R$ 250,00</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+<span class="font-medium text-slate-600 dark:text-slate-300">Valor da Faixa Simples</span>
+<div class="text-right">
+<span class="block text-slate-800 dark:text-slate-100 font-bold">R$ 45,00</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Família: R$ 40,00</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-8 shadow-sm flex-1">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">sports_kabaddi</span>
+<h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">Aulas Avulsas</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-700">
+<span class="font-medium text-slate-700 dark:text-slate-300">Aula Avulsa (Dojo)</span>
+<span class="text-xl font-bold text-primary">R$ 60,00</span>
+</div>
+<div class="flex items-center justify-between p-4">
+<span class="font-medium text-slate-700 dark:text-slate-300 max-w-[200px]">Alto Rendimento / Competição</span>
+<span class="text-xl font-bold text-primary">R$ 30,00</span>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-slate-900 text-white p-8 shadow-sm">
+<h4 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">credit_card</span>
+                Formas de Pagamento
+            </h4>
+<p class="text-slate-300 text-sm mb-4">
+                Aceitamos cartões de crédito, débito, PIX e dinheiro.
+            </p>
+<div class="flex gap-4 text-xs font-mono uppercase tracking-wide text-primary">
+<span>Trimestral: 2x</span>
+<span>Semestral: 3x</span>
+<span>Anual: 6x</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<h3 class="text-slate-900 dark:text-slate-100 text-2xl font-bold leading-tight tracking-[-0.015em] px-4 pb-6 pt-4 text-center">Dúvidas Frequentes</h3>
+<div class="flex flex-col gap-4 max-w-2xl mx-auto px-4">
+<details class="group rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 py-2 transition-all duration-300 open:shadow-md">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-4 list-none [&amp;::-webkit-details-marker]:hidden">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-normal">Preciso comprar o kimono logo no início?</p>
+<div class="text-slate-500 transition-transform duration-300 group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-relaxed pb-4">
+                                Não é obrigatório para as primeiras aulas experimentais. Recomendamos o uso de roupas confortáveis de ginástica. Após o primeiro mês, o uso do kimono (Gi) torna-se necessário para a prática adequada das técnicas e participação em exames.
+                            </div>
+</details>
+<details class="group rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 py-2 transition-all duration-300 open:shadow-md">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-4 list-none [&amp;::-webkit-details-marker]:hidden">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-normal">Como funcionam os exames de faixa?</p>
+<div class="text-slate-500 transition-transform duration-300 group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-relaxed pb-4">
+                                Os exames de faixa ocorrem a cada 3 ou 6 meses, dependendo da graduação e do desenvolvimento técnico do aluno. O Sensei avaliará a frequência, disciplina e execução técnica antes de autorizar o exame.
+                            </div>
+</details>
+<details class="group rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 py-2 transition-all duration-300 open:shadow-md">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-4 list-none [&amp;::-webkit-details-marker]:hidden">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-normal">Posso trancar o plano em caso de lesão?</p>
+<div class="text-slate-500 transition-transform duration-300 group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-relaxed pb-4">
+                                Sim, mediante apresentação de atestado médico, o plano pode ser trancado por até 60 dias sem custo adicional, estendendo a data de vencimento do seu contrato.
+                            </div>
+</details>
+<details class="group rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 py-2 transition-all duration-300 open:shadow-md">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-4 list-none [&amp;::-webkit-details-marker]:hidden">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-normal">Quais são as formas de pagamento aceitas?</p>
+<div class="text-slate-500 transition-transform duration-300 group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-relaxed pb-4">
+                                Aceitamos cartões de crédito (com recorrência sem ocupar limite total), débito, PIX e dinheiro. Planos trimestrais e anuais podem ser parcelados no cartão de crédito.
+                            </div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

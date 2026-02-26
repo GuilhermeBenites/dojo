@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dojo Luciano dos Santos - Localização &amp; Horários</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#d32f2f", 
+                "background-light": "#f8f5f5",
+                "background-dark": "#221010",
+                },
+                fontFamily: {
+                "display": ["Lexend", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-[#1a0c0c]/90 backdrop-blur-md px-6 lg:px-10 py-3">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight">Dojo Luciano dos Santos</h2>
+</div>
+<div class="hidden lg:flex flex-1 justify-end gap-8 items-center">
+<nav class="flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Início</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Sobre o Sensei</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Aulas</a>
+<a class="text-sm font-medium text-primary" href="#">Horários</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contato</a>
+</nav>
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold shadow-md shadow-primary/20 hover:bg-red-700 transition-colors">
+<span class="truncate">Agendar Aula Experimental</span>
+</button>
+</div>
+<button class="lg:hidden p-2 text-slate-900 dark:text-slate-100">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main class="flex-1 flex flex-col items-center w-full py-10 px-4 md:px-8">
+<div class="w-full max-w-[1200px] space-y-16">
+<div class="text-center space-y-4 max-w-2xl mx-auto">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+<span class="size-2 rounded-full bg-primary"></span>
+                        Encontre seu Caminho
+                    </div>
+<h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                        Onde Treinamos &amp;<br/><span class="text-primary">Horários de Treino</span>
+</h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg">
+                        Junte-se a nós em nosso dojo central. Seja você um iniciante ou um faixa preta avançado, temos um lugar para você no tatame.
+                    </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="bg-white dark:bg-[#2a1515] rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-800 h-full flex flex-col">
+<h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+<span class="bg-primary/10 p-2 rounded-lg text-primary material-symbols-outlined">location_on</span>
+                                Onde Treinamos
+                            </h2>
+<div class="space-y-6 flex-1">
+<div class="flex gap-4">
+<div class="w-1 bg-slate-200 dark:bg-slate-700 rounded-full h-auto"></div>
+<div>
+<p class="text-sm text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wide mb-1">Endereço</p>
+<p class="text-lg font-semibold text-slate-900 dark:text-slate-100">Rua das Artes Marciais, 123,<br/>Centro, São Paulo - SP</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-1 bg-slate-200 dark:bg-slate-700 rounded-full h-auto"></div>
+<div>
+<p class="text-sm text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wide mb-1">Contato</p>
+<p class="text-base text-slate-900 dark:text-slate-100 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">call</span> (11) 91234-5678
+                                        </p>
+<p class="text-base text-slate-900 dark:text-slate-100 flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-sm text-primary">mail</span> contato@dojoluciano.com.br
+                                        </p>
+</div>
+</div>
+<div class="pt-4 mt-auto">
+<a class="flex items-center justify-center w-full gap-2 rounded-lg bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 text-white font-semibold py-3 px-4 transition-all" href="#">
+<span class="material-symbols-outlined">directions</span>
+                                        Como Chegar
+                                    </a>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white dark:bg-[#2a1515] p-4 rounded-xl border border-slate-100 dark:border-slate-800 flex items-center gap-3 shadow-sm">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">directions_car</span>
+<div>
+<p class="font-bold text-sm">Estacionamento</p>
+<p class="text-xs text-slate-500">Vagas gratuitas</p>
+</div>
+</div>
+<div class="bg-white dark:bg-[#2a1515] p-4 rounded-xl border border-slate-100 dark:border-slate-800 flex items-center gap-3 shadow-sm">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">shower</span>
+<div>
+<p class="font-bold text-sm">Vestiários</p>
+<p class="text-xs text-slate-500">Com chuveiros</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 h-[400px] lg:h-auto min-h-[400px] relative rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 group">
+<div class="absolute inset-0 bg-slate-200 dark:bg-slate-800" data-location="São Paulo, Brazil" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdq2C7a05g4jgRPncXkVUU6QjpSXSDXo6KDj3yYpYsB2bVUcwGzxK8A4vD7C4GbuqlUFAxkQP4FK7gcjPDSmJdXG8FjLXpEJgnYZ0dkDC3wy7d_SzAtUyuWsvqLzboKA388fSAbL7HrzyTtf-8WpQyvu92CwYJhpFM8Wu3Krd7Ln8lTcU-FmXUUxq6mx-lE_COyUR2XzcM-avJY4MRZqWibD_iTRzHKsTCum11mCKdMviYH9XJ-62BifZ0zriGcgdZT40PJc_EUD67'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')] opacity-20 bg-center bg-no-repeat bg-cover pointer-events-none"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="bg-white dark:bg-slate-900 px-4 py-2 rounded-lg shadow-xl mb-2 animate-bounce">
+<span class="font-bold text-slate-900 dark:text-white text-sm">Estamos aqui!</span>
+</div>
+<div class="text-primary drop-shadow-lg">
+<svg fill="currentColor" height="48" viewBox="0 0 24 24" width="48"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg>
+</div>
+</div>
+</div>
+<div class="absolute bottom-4 right-4 flex flex-col gap-2">
+<button class="bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 p-2 rounded shadow-md hover:bg-slate-50 dark:hover:bg-slate-700 material-symbols-outlined">add</button>
+<button class="bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 p-2 rounded shadow-md hover:bg-slate-50 dark:hover:bg-slate-700 material-symbols-outlined">remove</button>
+</div>
+</div>
+</div>
+<div class="w-full h-px bg-slate-200 dark:bg-slate-800"></div>
+<div class="flex flex-col gap-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 text-primary mb-1">
+<span class="material-symbols-outlined text-3xl">sports_martial_arts</span>
+<h2 class="text-lg font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Dojo Luciano Dos Santos</h2>
+</div>
+<h2 class="text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">Grade de Horários</h2>
+<p class="text-slate-500 dark:text-slate-400 text-lg max-w-2xl">Confira nossa grade completa de treinos e instrutores.</p>
+</div>
+<div class="flex p-1 bg-slate-100 dark:bg-slate-800 rounded-lg self-start md:self-auto">
+<button class="px-6 py-2 rounded-md bg-white dark:bg-[#2a1515] text-primary shadow-sm font-bold text-sm transition-all ring-1 ring-black/5 dark:ring-white/10">
+                Infantil
+            </button>
+<button class="px-6 py-2 rounded-md text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 font-medium text-sm transition-all">
+                Adultos
+            </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="group bg-white dark:bg-[#2a1515] rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-all hover:border-primary/30 flex flex-col">
+<div class="h-2 w-full bg-primary transition-colors"></div>
+<div class="p-6 md:p-8 flex-1">
+<div class="flex justify-between items-center mb-6 border-b border-slate-100 dark:border-slate-800 pb-4">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<h3 class="text-xl md:text-2xl font-bold">Segunda / Quarta / Sexta</h3>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<span class="font-bold text-lg text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded min-w-[130px] text-center">16:00 - 17:00</span>
+</div>
+<div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-sm">person</span>
+<span class="font-medium">Sensei Anna Santos</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<span class="font-bold text-lg text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded min-w-[130px] text-center">18:15 - 19:15</span>
+</div>
+<div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-sm">person</span>
+<span class="font-medium">Sensei Luciano Dos Santos</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+<p class="text-xs text-slate-400 italic">
+                            * Chegar com 10 minutos de antecedência.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-[#2a1515] rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-all hover:border-primary/30 flex flex-col">
+<div class="h-2 w-full bg-slate-800 dark:bg-slate-700 group-hover:bg-primary transition-colors"></div>
+<div class="p-6 md:p-8 flex-1">
+<div class="flex justify-between items-center mb-6 border-b border-slate-100 dark:border-slate-800 pb-4">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-slate-800/10 dark:bg-slate-100/10 rounded-lg text-slate-800 dark:text-slate-200">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<h3 class="text-xl md:text-2xl font-bold">Terça / Quinta</h3>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<span class="font-bold text-lg text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded min-w-[130px] text-center">09:00 - 10:00</span>
+</div>
+<div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-sm">person</span>
+<span class="font-medium">Sensei Wynner Armoa</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<span class="font-bold text-lg text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded min-w-[130px] text-center">16:00 - 17:00</span>
+</div>
+<div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-sm">person</span>
+<span class="font-medium">Sensei Anna Santos</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<span class="font-bold text-lg text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded min-w-[130px] text-center">17:00 - 18:00</span>
+</div>
+<div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-sm">person</span>
+<span class="font-medium">Sensei Letícia Mendez</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<span class="font-bold text-lg text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded min-w-[130px] text-center">18:15 - 19:15</span>
+</div>
+<div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-sm">person</span>
+<span class="font-medium">Sensei Letícia Mendez</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="relative w-full rounded-2xl overflow-hidden bg-slate-900 text-white p-8 md:p-12 lg:p-16 flex flex-col md:flex-row items-center justify-between gap-8 isolate">
+<div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-800 via-slate-900 to-black"></div>
+<div class="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-primary/10 to-transparent"></div>
+<div class="flex flex-col gap-4 max-w-xl">
+<h2 class="text-3xl md:text-4xl font-bold tracking-tight">Pronto para começar sua jornada?</h2>
+<p class="text-slate-300 text-lg">Sua primeira aula experimental é totalmente gratuita. Venha visitar nosso dojo e conhecer o sensei.</p>
+</div>
+<div class="flex-shrink-0">
+<button class="group relative flex items-center gap-3 px-8 py-4 bg-primary text-white font-bold text-lg rounded-xl shadow-lg shadow-red-900/20 hover:bg-red-600 hover:shadow-red-600/30 transition-all overflow-hidden">
+<span class="relative z-10">Agendar Aula Grátis</span>
+<span class="material-symbols-outlined relative z-10 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+</button>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-12 py-8 bg-white dark:bg-[#1a0c0c] border-t border-slate-100 dark:border-slate-800 text-center">
+<div class="flex items-center justify-center gap-2 mb-4 text-slate-900 dark:text-white font-bold">
+<div class="size-5 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z" fill="currentColor"></path>
+</svg>
+</div>
+                Dojo Luciano dos Santos
+            </div>
+<p class="text-slate-500 dark:text-slate-400 text-sm">© 2023 Dojo Luciano dos Santos. Todos os direitos reservados.</p>
+</footer>
+</div>
+</body></html>
