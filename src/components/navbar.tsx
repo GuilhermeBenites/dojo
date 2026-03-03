@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, Swords } from "lucide-react";
 
 import {
@@ -27,6 +28,7 @@ const CTA_LABEL = "Agende Aula Grátis";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-[#1a0b0b]/95 backdrop-blur-md">
@@ -48,19 +50,23 @@ export function Navbar() {
           {/* Desktop nav */}
           <div className="hidden md:flex flex-1 items-center justify-end gap-8">
             <div className="flex items-center gap-6">
-              {NAV_LINKS.map(({ label, href }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className={cn(
-                    "text-sm font-medium transition-colors",
-                    "text-slate-700 hover:text-primary",
-                    "dark:text-slate-300 dark:hover:text-primary"
-                  )}
-                >
-                  {label}
-                </Link>
-              ))}
+              {NAV_LINKS.map(({ label, href }) => {
+                const isActive = pathname === href;
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    className={cn(
+                      "text-sm font-medium transition-colors",
+                      isActive
+                        ? "text-primary font-bold"
+                        : "text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary"
+                    )}
+                  >
+                    {label}
+                  </Link>
+                );
+              })}
             </div>
             <Link
               href="#"
@@ -91,20 +97,24 @@ export function Navbar() {
                   <SheetTitle className="sr-only">Menu de navegação</SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col gap-4 pt-6">
-                  {NAV_LINKS.map(({ label, href }) => (
-                    <Link
-                      key={href}
-                      href={href}
-                      onClick={() => setOpen(false)}
-                      className={cn(
-                        "text-base font-medium transition-colors py-2",
-                        "text-slate-700 hover:text-primary",
-                        "dark:text-slate-300 dark:hover:text-primary"
-                      )}
-                    >
-                      {label}
-                    </Link>
-                  ))}
+                  {NAV_LINKS.map(({ label, href }) => {
+                    const isActive = pathname === href;
+                    return (
+                      <Link
+                        key={href}
+                        href={href}
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          "text-base font-medium transition-colors py-2",
+                          isActive
+                            ? "text-primary font-bold"
+                            : "text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary"
+                        )}
+                      >
+                        {label}
+                      </Link>
+                    );
+                  })}
                   <Link
                     href="#"
                     onClick={() => setOpen(false)}

@@ -1,20 +1,34 @@
-import { render, screen, cleanup } from "@testing-library/react";
-import { describe, it, expect, vi, afterEach } from "vitest";
+import { render, screen, cleanup, fireEvent } from "@testing-library/react";
+import { describe, it, expect, vi, afterEach, beforeEach } from "vitest";
 import { Navbar } from "./navbar";
+
+// Hoisted so the mock factories below can close over these mutable refs.
+const sheetRef = vi.hoisted(() => ({
+  onOpenChange: undefined as ((v: boolean) => void) | undefined,
+}));
+const mockPathname = vi.hoisted(() => ({ value: "/" }));
+
+vi.mock("next/navigation", () => ({
+  usePathname: () => mockPathname.value,
+}));
 
 vi.mock("@/components/ui/sheet", () => ({
   Sheet: ({
     children,
     open,
+    onOpenChange,
   }: {
     children: React.ReactNode;
     open?: boolean;
     onOpenChange?: (v: boolean) => void;
-  }) => (
-    <div data-testid="sheet" data-state={open ? "open" : "closed"}>
-      {children}
-    </div>
-  ),
+  }) => {
+    sheetRef.onOpenChange = onOpenChange;
+    return (
+      <div data-testid="sheet" data-state={open ? "open" : "closed"}>
+        {children}
+      </div>
+    );
+  },
   SheetContent: ({
     children,
     side,
@@ -43,7 +57,7 @@ vi.mock("@/components/ui/sheet", () => ({
   }: {
     children: React.ReactNode;
     asChild?: boolean;
-  }) => <>{children}</>,
+  }) => <div onClick={() => sheetRef.onOpenChange?.(true)}>{children}</div>,
 }));
 
 vi.mock("@/components/ui/button", () => ({
@@ -152,5 +166,75 @@ describe("Navbar", () => {
     expect(screen.getByTestId("sheet").getAttribute("data-state")).toBe(
       "closed",
     );
+  });
+});
+
+describe("Navbar — mobile menu interaction", () => {
+  beforeEach(() => {
+    mockPathname.value = "/";
+  });
+  afterEach(cleanup);
+
+  it("clicking the hamburger button opens the mobile sheet", () => {
+    render(<Navbar />);
+    fireEvent.click(screen.getByRole("button", { name: /abrir menu/i }));
+    expect(screen.getByTestId("sheet").getAttribute("data-state")).toBe("open");
+  });
+
+  it("clicking a mobile nav link closes the sheet (line 106)", () => {
+    render(<Navbar />);
+    fireEvent.click(screen.getByRole("button", { name: /abrir menu/i }));
+    expect(screen.getByTestId("sheet").getAttribute("data-state")).toBe("open");
+
+    const sheetContent = screen.getByTestId("sheet-content");
+    const senseiLink = Array.from(sheetContent.querySelectorAll("a")).find(
+      (a) => a.textContent?.trim() === "Senseis",
+    )!;
+    fireEvent.click(senseiLink);
+
+    expect(screen.getByTestId("sheet").getAttribute("data-state")).toBe(
+      "closed",
+    );
+  });
+
+  it("clicking the mobile CTA link closes the sheet (line 120)", () => {
+    render(<Navbar />);
+    fireEvent.click(screen.getByRole("button", { name: /abrir menu/i }));
+    expect(screen.getByTestId("sheet").getAttribute("data-state")).toBe("open");
+
+    const sheetContent = screen.getByTestId("sheet-content");
+    const ctaLink = Array.from(sheetContent.querySelectorAll("a")).find(
+      (a) => a.textContent?.trim() === "Agende Aula Grátis",
+    )!;
+    fireEvent.click(ctaLink);
+
+    expect(screen.getByTestId("sheet").getAttribute("data-state")).toBe(
+      "closed",
+    );
+  });
+
+  it("active mobile nav link has text-primary and font-bold classes", () => {
+    mockPathname.value = "/senseis";
+    render(<Navbar />);
+
+    const sheetContent = screen.getByTestId("sheet-content");
+    const senseiLink = Array.from(sheetContent.querySelectorAll("a")).find(
+      (a) => a.textContent?.trim() === "Senseis",
+    )!;
+
+    expect(senseiLink.className).toContain("text-primary");
+    expect(senseiLink.className).toContain("font-bold");
+  });
+
+  it("inactive mobile nav link has text-slate-700 class (line 111)", () => {
+    mockPathname.value = "/senseis";
+    render(<Navbar />);
+
+    const sheetContent = screen.getByTestId("sheet-content");
+    const horariosLink = Array.from(sheetContent.querySelectorAll("a")).find(
+      (a) => a.textContent?.trim() === "Horários",
+    )!;
+
+    expect(horariosLink.className).toContain("text-slate-700");
   });
 });
