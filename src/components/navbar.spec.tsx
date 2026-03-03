@@ -6,7 +6,6 @@ vi.mock("@/components/ui/sheet", () => ({
   Sheet: ({
     children,
     open,
-    onOpenChange,
   }: {
     children: React.ReactNode;
     open?: boolean;
@@ -41,7 +40,6 @@ vi.mock("@/components/ui/sheet", () => ({
   }) => <div className={className}>{children}</div>,
   SheetTrigger: ({
     children,
-    asChild,
   }: {
     children: React.ReactNode;
     asChild?: boolean;
@@ -53,8 +51,8 @@ vi.mock("@/components/ui/button", () => ({
     children,
     className,
     "aria-label": ariaLabel,
-    variant,
-    size,
+    variant: _variant,
+    size: _size,
     ...rest
   }: React.ButtonHTMLAttributes<HTMLButtonElement> & {
     children: React.ReactNode;
@@ -108,7 +106,7 @@ describe("Navbar", () => {
       const links = screen.getAllByRole("link", { name: label });
       expect(links.length).toBeGreaterThanOrEqual(1);
       expect(links[0].getAttribute("href")).toBe(href);
-    }
+    },
   );
 
   it("renders the CTA label in at least one link", () => {
@@ -142,9 +140,9 @@ describe("Navbar", () => {
     render(<Navbar />);
     const sheetContent = screen.getByTestId("sheet-content");
     NAV_LINKS.forEach(({ label }) => {
-      const link = Array.from(
-        sheetContent.querySelectorAll("a")
-      ).find((a) => a.textContent?.trim() === label);
+      const link = Array.from(sheetContent.querySelectorAll("a")).find(
+        (a) => a.textContent?.trim() === label,
+      );
       expect(link, `Expected "${label}" link in sheet content`).toBeTruthy();
     });
   });
@@ -152,7 +150,7 @@ describe("Navbar", () => {
   it("sheet is closed by default", () => {
     render(<Navbar />);
     expect(screen.getByTestId("sheet").getAttribute("data-state")).toBe(
-      "closed"
+      "closed",
     );
   });
 });
