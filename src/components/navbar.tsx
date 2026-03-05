@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 const NAV_LINKS = [
   { label: "Início", href: "/" },
@@ -69,7 +70,9 @@ export function Navbar() {
               })}
             </div>
             <Link
-              href="#"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className={cn(
                 "bg-primary hover:bg-red-700 text-white text-sm font-bold py-2.5 px-5 rounded-lg",
                 "transition-all shadow-lg shadow-primary/20"
@@ -116,7 +119,9 @@ export function Navbar() {
                     );
                   })}
                   <Link
-                    href="#"
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setOpen(false)}
                     className={cn(
                       "mt-4 inline-flex items-center justify-center",

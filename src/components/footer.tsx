@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Swords } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 const FOOTER_LINKS = [
   { label: "Início", href: "/" },
@@ -9,7 +10,6 @@ const FOOTER_LINKS = [
   { label: "Planos", href: "/planos" },
 ] as const;
 
-const WHATSAPP_URL = "#";
 const INSTAGRAM_URL = "#";
 
 export function Footer() {
@@ -60,6 +60,8 @@ export function Footer() {
             <div className="flex gap-4">
               <a
                 href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
                 className={cn(
                   "group flex h-12 w-12 items-center justify-center rounded-full",
@@ -82,6 +84,8 @@ export function Footer() {
               </a>
               <a
                 href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="WhatsApp"
                 className={cn(
                   "group flex h-12 w-12 items-center justify-center rounded-full",
@@ -101,6 +105,8 @@ export function Footer() {
             </div>
             <Link
               href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className={cn(
                 "bg-primary hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg",
                 "transition-all shadow-md w-full md:w-auto text-center inline-block"

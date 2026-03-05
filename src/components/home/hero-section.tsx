@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 const HERO_IMAGE_URL =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDw0rBmeDJKEAE_9pU7imunT_IbBvek4_fY79Y6UMaYlwSW33ypvi5tNGYhYCUuzTt14uCA2iRsDsZRK95Mru0-wiNwPqcVpqdO6NipcyKZelh-8F0nqWMTdXCpeD7XhGbmxCBY429QNVSM9amNuQpscqbFiPiLpt0jJ4sp5xGX_jQkaud5i5LVfd9mEi-p-B75yAuLtqu71Mm_TH6paenxhfvCZ4iD34o6TjkmUbyoLE8NaqCYWG4JDOyjXnCbKwAXaOEwFraEq4SC";
@@ -43,7 +44,9 @@ export function HeroSection() {
             </p>
             <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
               <Link
-                href="#"
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-4 text-base font-bold text-white shadow-lg shadow-primary/30 transition-all hover:scale-105 hover:bg-red-700"
               >
                 Agende sua Aula Grátis
