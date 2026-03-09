@@ -31,7 +31,7 @@ export function GalleryItem({ image, onOpen }: GalleryItemProps) {
       <button
         type="button"
         aria-label={`Ampliar: ${image.title}`}
-        onClick={() => onOpen(image)}
+        onClick={(e) => { e.stopPropagation(); onOpen(image); }}
         className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-neutral-dark opacity-0 shadow-lg transition-all duration-300 hover:bg-white group-hover:opacity-100"
       >
         <svg
