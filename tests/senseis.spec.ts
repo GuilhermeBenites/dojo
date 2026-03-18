@@ -18,8 +18,9 @@ test.describe("Senseis page (/senseis)", () => {
   // --- Founder Hero section ---
   test("renders Founder heading", async ({ page }) => {
     await expect(
-      page.getByRole("heading", {
-        name: /sensei luciano dos santos/i,
+      page.locator("main").getByRole("heading", {
+        name: /luciano dos santos/i,
+        level: 2,
       })
     ).toBeVisible();
   });
@@ -29,7 +30,7 @@ test.describe("Senseis page (/senseis)", () => {
   });
 
   test("renders founder bio text", async ({ page }) => {
-    await expect(page.getByText(/25 anos de dedicação/i)).toBeVisible();
+    await expect(page.getByText(/30 anos de experiência/i)).toBeVisible();
   });
 
   test("renders founder blockquote", async ({ page }) => {
@@ -129,8 +130,9 @@ test.describe("Senseis page (/senseis)", () => {
     const context = await browser.newContext({ javaScriptEnabled: false });
     const page = await context.newPage();
     await page.goto("/senseis");
-    const heading = page.getByRole("heading", {
-      name: /sensei luciano dos santos/i,
+    const heading = page.locator("main").getByRole("heading", {
+      name: /luciano dos santos/i,
+      level: 2,
     });
     await expect(heading).toBeVisible();
     await context.close();

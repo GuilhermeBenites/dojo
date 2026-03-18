@@ -70,7 +70,9 @@ test.describe("Horarios page (/horarios)", () => {
   });
 
   test("at least one schedule day card is visible", async ({ page }) => {
-    await expect(page.getByText(/Segunda \/ Quarta \/ Sexta/i)).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: /segunda, quarta e sexta/i })
+    ).toBeVisible();
   });
 
   // --- Category filter interactivity ---
