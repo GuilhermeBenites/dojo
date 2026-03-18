@@ -1,6 +1,6 @@
 import { Quote, User } from "lucide-react";
 
-const TESTIMONIALS: {
+export const TESTIMONIALS: {
   quote: string;
   author: string;
   role: string;
@@ -25,7 +25,13 @@ const TESTIMONIALS: {
   },
 ];
 
-export function TestimonialsSection() {
+type Testimonial = { author: string; role: string; quote: string };
+
+interface TestimonialsSectionProps {
+  testimonials: Testimonial[];
+}
+
+export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) {
   return (
     <section
       id="depoimentos"
@@ -42,9 +48,9 @@ export function TestimonialsSection() {
           </p>
         </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {TESTIMONIALS.map(({ quote, author, role }) => (
+          {testimonials.map(({ quote, author, role }) => (
             <div
-              key={author}
+              key={`${author}-${role}`}
               className="relative rounded-2xl bg-slate-50 p-8 shadow-sm ring-1 ring-slate-200 dark:bg-slate-900/50 dark:ring-slate-800"
             >
               <div className="absolute -top-4 left-8 rounded-full bg-primary p-2 text-white shadow-lg">

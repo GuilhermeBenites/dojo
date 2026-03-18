@@ -1,21 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import type { GalleryCategory } from "@/types/gallery";
-import { GALLERY_IMAGES } from "./galeria-data";
+import type { GalleryCategory, GalleryImage } from "@/types/gallery";
 import { GalleryFilterBar } from "./gallery-filter-bar";
 import { GalleryItem } from "./gallery-item";
 import { GalleryLightbox } from "./gallery-lightbox";
 
-export function GalleryMasonryGrid() {
+interface GalleryMasonryGridProps {
+  images: GalleryImage[];
+}
+
+export function GalleryMasonryGrid({ images }: GalleryMasonryGridProps) {
   const [activeCategory, setActiveCategory] =
     useState<GalleryCategory>("Todos");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const filtered =
     activeCategory === "Todos"
-      ? GALLERY_IMAGES
-      : GALLERY_IMAGES.filter((img) => img.category === activeCategory);
+      ? images
+      : images.filter((img) => img.category === activeCategory);
 
   const currentImage =
     lightboxIndex !== null ? filtered[lightboxIndex] ?? null : null;

@@ -8,6 +8,8 @@ export interface SenseiRow {
   rank: string;
   specialty: string | null;
   bio: string | null;
+  quote: string | null;
+  organization: string | null;
   photo_url: string | null;
   is_founder: boolean;
   display_order: number;

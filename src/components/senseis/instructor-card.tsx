@@ -9,7 +9,10 @@ interface InstructorCardProps {
 
 export function InstructorCard({ sensei }: InstructorCardProps) {
   return (
-    <article className="group flex flex-col overflow-hidden rounded-xl border border-slate-100 bg-slate-50 transition-all hover:border-primary/20 hover:shadow-lg dark:border-white/5 dark:bg-[#2a1a1a]">
+    <article
+      data-testid="instructor-card"
+      className="group flex flex-col overflow-hidden rounded-xl border border-slate-100 bg-slate-50 transition-all hover:border-primary/20 hover:shadow-lg dark:border-white/5 dark:bg-[#2a1a1a]"
+    >
       <div className="relative aspect-square overflow-hidden bg-slate-200">
         <Image
           src={sensei.photoUrl}

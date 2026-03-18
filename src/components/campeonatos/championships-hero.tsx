@@ -1,8 +1,12 @@
 import Image from "next/image";
-import { MEDAL_COUNTER_CARDS } from "./campeonatos-data";
+import type { MedalCounterCard } from "@/types/championships";
 import { ChampionshipsMedalCounter } from "./championships-medal-counter";
 
-export function ChampionshipsHero() {
+interface ChampionshipsHeroProps {
+  cards: MedalCounterCard[];
+}
+
+export function ChampionshipsHero({ cards }: ChampionshipsHeroProps) {
   return (
     <section className="relative overflow-hidden bg-background-dark py-16 text-white lg:py-24">
       {/* Texture overlay — decorative */}
@@ -42,7 +46,7 @@ export function ChampionshipsHero() {
 
         {/* Medal counters: 2 cols on mobile, 4 on lg */}
         <div className="grid w-full max-w-4xl grid-cols-2 gap-4 lg:grid-cols-4">
-          {MEDAL_COUNTER_CARDS.map((card) => (
+          {cards.map((card) => (
             <ChampionshipsMedalCounter key={card.label} card={card} />
           ))}
         </div>

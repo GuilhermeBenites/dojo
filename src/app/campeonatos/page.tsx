@@ -3,8 +3,9 @@ import { ChampionshipsHero } from "@/components/campeonatos/championships-hero";
 import { ChampionshipsHallOfFame } from "@/components/campeonatos/championships-hall-of-fame";
 import { ChampionshipsTimeline } from "@/components/campeonatos/championships-timeline";
 import { ChampionshipsCta } from "@/components/campeonatos/championships-cta";
-import { CHAMPIONSHIPS } from "@/components/campeonatos/campeonatos-data";
+import { getChampionshipsPageData } from "@/services/championships";
 
+export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Campeonatos | Dojo Luciano dos Santos",
   description:
@@ -17,12 +18,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CampeonatosPage() {
+export default async function CampeonatosPage() {
+  const { medalCards, hallOfFame, events } =
+    await getChampionshipsPageData();
   return (
     <>
-      <ChampionshipsHero />
-      <ChampionshipsHallOfFame />
-      <ChampionshipsTimeline events={CHAMPIONSHIPS} />
+      <ChampionshipsHero cards={medalCards} />
+      <ChampionshipsHallOfFame athletes={hallOfFame} />
+      <ChampionshipsTimeline events={events} />
       <ChampionshipsCta />
     </>
   );

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { FounderHero } from "@/components/senseis/founder-hero";
 import { InstructorsGrid } from "@/components/senseis/instructors-grid";
-import { FOUNDER, INSTRUCTORS } from "@/components/senseis/senseis-data";
+import { getSenseis } from "@/services/senseis";
 
+export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Nossos Senseis | Dojo Luciano dos Santos",
   description:
@@ -15,11 +16,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SenseisPage() {
+export default async function SenseisPage() {
+  const { founder, instructors } = await getSenseis();
   return (
     <>
-      <FounderHero founder={FOUNDER} />
-      <InstructorsGrid instructors={INSTRUCTORS} />
+      <FounderHero founder={founder} />
+      <InstructorsGrid instructors={instructors} />
     </>
   );
 }

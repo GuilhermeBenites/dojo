@@ -1,6 +1,10 @@
-import { DROP_IN_CLASSES } from "./planos-data";
+import type { DropInItem } from "@/types/plans";
 
-export function PlansDropIn() {
+interface PlansDropInProps {
+  items: DropInItem[];
+}
+
+export function PlansDropIn({ items }: PlansDropInProps) {
   return (
     <div className="flex flex-col gap-6">
       {/* Drop-in classes */}
@@ -15,11 +19,11 @@ export function PlansDropIn() {
           <h3 className="text-2xl font-bold text-neutral-dark">Aulas Avulsas</h3>
         </div>
         <div className="space-y-4">
-          {DROP_IN_CLASSES.map((item, index) => (
+          {items.map((item, index) => (
             <div
               key={item.id}
               className={`flex items-center justify-between p-4 ${
-                index < DROP_IN_CLASSES.length - 1
+                index < items.length - 1
                   ? "border-b border-slate-100"
                   : ""
               }`}

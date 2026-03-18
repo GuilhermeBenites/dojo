@@ -4,7 +4,9 @@ import {
   BenefitsSection,
   TestimonialsSection,
 } from "@/components/home";
+import { getTestimonials } from "@/services/testimonials";
 
+export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Dojo Luciano dos Santos Karate | Tradição & Disciplina",
   description:
@@ -17,12 +19,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export default async function Home() {
+  const testimonials = await getTestimonials();
   return (
     <>
       <HeroSection />
       <BenefitsSection />
-      <TestimonialsSection />
+      <TestimonialsSection testimonials={testimonials} />
     </>
   );
 }

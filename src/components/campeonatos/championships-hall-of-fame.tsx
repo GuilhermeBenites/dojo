@@ -1,7 +1,11 @@
 import Image from "next/image";
-import { HALL_OF_FAME } from "./campeonatos-data";
+import type { HallOfFameAthlete } from "@/types/championships";
 
-export function ChampionshipsHallOfFame() {
+interface ChampionshipsHallOfFameProps {
+  athletes: HallOfFameAthlete[];
+}
+
+export function ChampionshipsHallOfFame({ athletes }: ChampionshipsHallOfFameProps) {
   return (
     <section className="bg-background-light py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -29,7 +33,7 @@ export function ChampionshipsHallOfFame() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {HALL_OF_FAME.map((athlete) => (
+          {athletes.map((athlete) => (
             <div
               key={athlete.id}
               className="group relative aspect-[3/4] overflow-hidden rounded-2xl"

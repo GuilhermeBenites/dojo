@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { GalleryMasonryGrid } from "@/components/galeria/gallery-masonry-grid";
 import { GaleriaCta } from "@/components/galeria/gallery-cta";
+import { getGalleryImages } from "@/services/gallery";
 
+export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Galeria | Dojo Luciano dos Santos",
   description:
@@ -14,7 +16,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function GaleriaPage() {
+export default async function GaleriaPage() {
+  const images = await getGalleryImages();
   return (
     <div className="flex w-full flex-col items-center px-4 py-10 md:px-8">
       <div className="w-full max-w-[1280px] space-y-0">
@@ -32,7 +35,7 @@ export default function GaleriaPage() {
         </section>
 
         {/* Filter + Masonry grid (Client Component) */}
-        <GalleryMasonryGrid />
+        <GalleryMasonryGrid images={images} />
 
         {/* CTA */}
         <GaleriaCta />

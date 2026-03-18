@@ -5,8 +5,9 @@ import { PlansBeltExam } from "@/components/planos/plans-belt-exam";
 import { PlansDropIn } from "@/components/planos/plans-drop-in";
 import { PlansFaq } from "@/components/planos/plans-faq";
 import { PlansCta } from "@/components/planos/plans-cta";
-import { FAQ_ITEMS } from "@/components/planos/planos-data";
+import { getPlansPageData } from "@/services/plans";
 
+export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Planos e Valores | Dojo Luciano dos Santos",
   description:
@@ -19,20 +20,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PlanosPage() {
+export default async function PlanosPage() {
+  const { plans, beltExams, dropIn, faq } = await getPlansPageData();
   return (
     <>
       <PlansHero />
       <div className="bg-background-light">
         <div className="mx-auto max-w-[1100px] px-4 pb-16">
-          <PlansPricingGrid />
+          <PlansPricingGrid plans={plans} />
           <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
-            <PlansBeltExam />
-            <PlansDropIn />
+            <PlansBeltExam exams={beltExams} />
+            <PlansDropIn items={dropIn} />
           </div>
         </div>
       </div>
-      <PlansFaq items={FAQ_ITEMS} />
+      <PlansFaq items={faq} />
       <PlansCta />
     </>
   );

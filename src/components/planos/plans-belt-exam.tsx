@@ -1,6 +1,10 @@
-import { BELT_EXAMS } from "./planos-data";
+import type { BeltExamRow } from "@/types/plans";
 
-export function PlansBeltExam() {
+interface PlansBeltExamProps {
+  exams: BeltExamRow[];
+}
+
+export function PlansBeltExam({ exams }: PlansBeltExamProps) {
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-8 shadow-sm">
       <div className="mb-6 flex items-center gap-3">
@@ -13,7 +17,7 @@ export function PlansBeltExam() {
         <h3 className="text-2xl font-bold text-neutral-dark">Exame de Faixa</h3>
       </div>
       <div className="space-y-4">
-        {BELT_EXAMS.map((row) => (
+        {exams.map((row) => (
           <div
             key={row.id}
             className={`flex flex-col justify-between p-3 sm:flex-row sm:items-center ${

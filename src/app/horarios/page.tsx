@@ -3,8 +3,10 @@ import { LocationCard } from "@/components/horarios/location-card";
 import { MapPlaceholder } from "@/components/horarios/map-placeholder";
 import { ScheduleFilter } from "@/components/horarios/schedule-filter";
 import { ScheduleCta } from "@/components/horarios/schedule-cta";
-import { LOCATION, SCHEDULE_GROUPS } from "@/components/horarios/horarios-data";
+import { LOCATION } from "@/components/horarios/horarios-data";
+import { getScheduleGroups } from "@/services/schedules";
 
+export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Localização & Horários | Dojo Luciano dos Santos",
   description:
@@ -17,7 +19,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function HorariosPage() {
+export default async function HorariosPage() {
+  const groups = await getScheduleGroups();
   return (
     <div className="flex w-full flex-col items-center py-10 px-4 md:px-8">
       <div className="w-full max-w-[1200px] space-y-16">
@@ -50,7 +53,7 @@ export default function HorariosPage() {
         <hr className="border-slate-200 dark:border-slate-800" />
 
         {/* 3. Schedule section */}
-        <ScheduleFilter groups={SCHEDULE_GROUPS} />
+        <ScheduleFilter groups={groups} />
 
         {/* 4. CTA */}
         <ScheduleCta />
