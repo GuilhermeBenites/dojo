@@ -164,6 +164,10 @@ export type ChampionshipResultInsert = Omit<
   "id" | "created_at"
 >;
 export type PlanInsert = Omit<PlanRow, "id" | "created_at" | "updated_at">;
+export type StudentInsert = Omit<
+  StudentRow,
+  "id" | "created_at" | "updated_at"
+>;
 
 // -------------------------------------------------------
 // Database interface (passed as generic to createClient<Database>)
@@ -230,8 +234,8 @@ export interface Database {
       };
       students: {
         Row: StudentRow;
-        Insert: Omit<StudentRow, "id" | "created_at" | "updated_at">;
-        Update: Partial<Omit<StudentRow, "id" | "created_at" | "updated_at">>;
+        Insert: StudentInsert;
+        Update: Partial<StudentInsert>;
       };
       leads: {
         Row: LeadRow;
@@ -239,5 +243,9 @@ export interface Database {
         Update: never;
       };
     };
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
+    Enums: Record<string, never>;
+    CompositeTypes: Record<string, never>;
   };
 }
