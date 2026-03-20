@@ -1,5 +1,5 @@
 import { createSupabaseServerClient } from "@/lib/supabase/server";
-import type { StudentRow } from "@/types/database";
+import type { StudentFinanceRow, StudentRow } from "@/types/database";
 
 export interface StudentsFilter {
   search?: string;
@@ -82,4 +82,20 @@ export async function getBirthdaysThisMonth(): Promise<StudentRow[]> {
     const dayB = new Date(b.birth_date!).getDate();
     return dayA - dayB;
   });
+}
+
+export async function getStudentsForFinance(): Promise<StudentFinanceRow[]> {
+  const supabase = await createSupabaseServerClient();
+  const { data, error } = await supabase
+    .from("students")
+    .select("id, name, belt, plan_id, next_payment_date, phone")
+    .eq("active", true)
+    .order("next_payment_date", { ascending: true, nullsFirst: false });
+
+  if (error) {
+    console.error("Error fetching students for finance:", error);
+    return [];
+  }
+
+  return (data ?? []) as StudentFinanceRow[];
 }

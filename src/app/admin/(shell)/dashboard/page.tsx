@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { getBirthdaysThisMonth } from "@/services/students";
+import { getDashboardStats, getRecentLeads } from "@/services/dashboard";
+import { KpiCard } from "@/components/admin/dashboard/kpi-card";
+import { RecentLeadsList } from "@/components/admin/dashboard/recent-leads-list";
 
 export const metadata: Metadata = { title: "Dashboard | Admin Dojo" };
 
@@ -8,6 +13,13 @@ export default async function DashboardPage() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
+
+  const [birthdays, recentLeads] = await Promise.all([
+    getBirthdaysThisMonth(),
+    getRecentLeads(5),
+  ]);
+
+  const stats = await getDashboardStats(birthdays.length);
 
   return (
     <div className="flex flex-col gap-6">
@@ -22,24 +34,40 @@ export default async function DashboardPage() {
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
         aria-label="Resumo administrativo"
       >
-        {[
-          { label: "Alunos Ativos", value: "—" },
-          { label: "Novos Leads", value: "—" },
-          { label: "Campeonatos", value: "—" },
-          { label: "Receita (mês)", value: "—" },
-        ].map(({ label, value }) => (
-          <div
-            key={label}
-            className="rounded-lg border border-border bg-card p-5 flex flex-col gap-1"
+        <KpiCard
+          label="Alunos Ativos"
+          value={stats.activeStudents}
+          href="/admin/students"
+        />
+        <KpiCard
+          label="Novos Leads (mês)"
+          value={stats.newLeadsThisMonth}
+        />
+        <KpiCard
+          label="Aniversariantes"
+          value={stats.birthdaysThisMonth}
+          href="/admin/students"
+          description="este mês"
+        />
+        <KpiCard
+          label="Inadimplentes"
+          value={stats.overduePayments}
+          href="/admin/finance"
+          variant={stats.overduePayments > 0 ? "danger" : "default"}
+        />
+      </div>
+
+      <div>
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-lg font-semibold">Leads Recentes</h2>
+          <Link
+            href="/admin/finance"
+            className="text-sm text-muted-foreground hover:underline"
           >
-            <span className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
-              {label}
-            </span>
-            <span className="text-2xl font-bold text-card-foreground">
-              {value}
-            </span>
-          </div>
-        ))}
+            Ver financeiro →
+          </Link>
+        </div>
+        <RecentLeadsList leads={recentLeads} />
       </div>
     </div>
   );

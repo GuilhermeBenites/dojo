@@ -40,6 +40,21 @@ function toFaqItem(row: FaqItemRow): FaqItem {
   return { id: row.id, question: row.question, answer: row.answer };
 }
 
+export async function getPlans(): Promise<Array<{ id: string; title: string }>> {
+  const supabase = await createSupabaseServerClient();
+  const { data, error } = await supabase
+    .from("plans")
+    .select("id, title")
+    .order("display_order", { ascending: true });
+
+  if (error) {
+    console.error("Error fetching plans:", error);
+    return [];
+  }
+
+  return (data ?? []) as Array<{ id: string; title: string }>;
+}
+
 export async function getPlansPageData(): Promise<{
   plans: PricingPlan[];
   beltExams: PlansBeltExam[];

@@ -139,9 +139,34 @@ export interface StudentRow {
   birth_date: string | null;
   active: boolean;
   notes: string | null;
+  next_payment_date: string | null;
   created_at: string;
   updated_at: string;
 }
+
+/** Minimal student shape for the finance payment table. */
+export type StudentFinanceRow = Pick<
+  StudentRow,
+  "id" | "name" | "belt" | "plan_id" | "next_payment_date" | "phone"
+>;
+
+export type PaymentType =
+  | "mensalidade"
+  | "exame_faixa"
+  | "aula_particular"
+  | "outros";
+
+export interface PaymentRow {
+  id: string;
+  student_id: string;
+  amount: number;
+  payment_date: string; // ISO date "YYYY-MM-DD"
+  payment_type: PaymentType;
+  notes: string | null;
+  created_at: string;
+}
+
+export type PaymentInsert = Omit<PaymentRow, "id" | "created_at">;
 
 export interface LeadRow {
   id: string;
@@ -241,6 +266,11 @@ export interface Database {
         Row: LeadRow;
         Insert: Omit<LeadRow, "id" | "created_at">;
         Update: never;
+      };
+      payments: {
+        Row: PaymentRow;
+        Insert: PaymentInsert;
+        Update: Partial<PaymentInsert>;
       };
     };
     Views: Record<string, never>;
