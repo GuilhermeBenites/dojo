@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -7,7 +8,6 @@ import {
   FileText,
   Users,
   DollarSign,
-  Swords,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ADMIN_ROUTES } from "@/lib/constants";
@@ -29,7 +29,7 @@ export function AdminSidebar() {
     >
       {/* Logo */}
       <div className="flex items-center gap-2 px-4 h-16 border-b border-border">
-        <Swords className="size-6 text-primary" aria-hidden />
+        <Image src="/logo.jpg" alt="Dojo" width={28} height={28} className="rounded-full" />
         <span className="font-bold text-sm text-sidebar-foreground">
           Dojo Admin
         </span>

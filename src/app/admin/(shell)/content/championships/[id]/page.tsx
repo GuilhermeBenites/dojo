@@ -15,16 +15,25 @@ interface PageProps {
 export default async function ChampionshipResultsPage({ params }: PageProps) {
   const { id } = await params;
   const supabase = await createSupabaseServerClient();
-  const { data: championship } = (await supabase
-    .from("championships")
-    .select("*")
-    .eq("id", id)
-    .single()) as { data: { name: string; event_date: string; location: string } | null };
-  const { data: results } = await supabase
-    .from("championship_results")
-    .select("*")
-    .eq("championship_id", id)
-    .order("placement");
+  const [champRes, resultsRes, studentsRes] = await Promise.all([
+    supabase.from("championships").select("*").eq("id", id).single(),
+    supabase
+      .from("championship_results")
+      .select("*")
+      .eq("championship_id", id)
+      .order("placement"),
+    supabase
+      .from("students")
+      .select("id, name")
+      .eq("active", true)
+      .order("name"),
+  ]);
+
+  const championship = champRes.data as {
+    name: string;
+    event_date: string;
+    location: string;
+  } | null;
 
   if (!championship) {
     return (
@@ -35,6 +44,8 @@ export default async function ChampionshipResultsPage({ params }: PageProps) {
     );
   }
 
+  const students = (studentsRes.data ?? []) as { id: string; name: string }[];
+
   return (
     <div className="space-y-6">
       <CmsBackLink href="/admin/content/championships" label="Campeonatos" />
@@ -44,8 +55,8 @@ export default async function ChampionshipResultsPage({ params }: PageProps) {
           {championship.event_date} • {championship.location}
         </p>
       </div>
-      <ResultsTable results={results ?? []} championshipId={id} />
-      <ResultRowForm championshipId={id} />
+      <ResultsTable results={resultsRes.data ?? []} championshipId={id} />
+      <ResultRowForm championshipId={id} students={students} />
     </div>
   );
 }

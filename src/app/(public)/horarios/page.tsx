@@ -4,19 +4,26 @@ import { MapPlaceholder } from "@/components/horarios/map-placeholder";
 import { ScheduleFilter } from "@/components/horarios/schedule-filter";
 import { ScheduleCta } from "@/components/horarios/schedule-cta";
 import { LOCATION } from "@/components/horarios/horarios-data";
+import { SITE_URL } from "@/lib/constants";
 import { getScheduleGroups } from "@/services/schedules";
 
 export const revalidate = 3600;
+
+const description =
+  "Encontre nosso dojo em São Paulo. Confira a grade de horários de treinos Infantil e Adultos. Estacionamento e vestiários disponíveis.";
+
+const canonical = `${SITE_URL}/horarios`;
+
 export const metadata: Metadata = {
-  title: "Localização & Horários | Dojo Luciano dos Santos",
-  description:
-    "Encontre nosso dojo em São Paulo. Confira a grade de horários de treinos Infantil e Adultos. Estacionamento e vestiários disponíveis.",
+  title: "Localização & Horários",
+  description,
+  keywords: ["horário karate", "academia karate Dourados"],
   openGraph: {
-    title: "Localização & Horários | Dojo Luciano dos Santos",
-    description:
-      "Encontre nosso dojo em São Paulo. Confira a grade de horários de treinos Infantil e Adultos. Estacionamento e vestiários disponíveis.",
-    type: "website",
+    title: "Localização & Horários",
+    description,
+    url: canonical,
   },
+  alternates: { canonical },
 };
 
 export default async function HorariosPage() {

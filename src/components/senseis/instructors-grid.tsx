@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import { InstructorCard } from "./instructor-card";
+import { SenseiProfileModal } from "./sensei-profile-modal";
 import type { Sensei } from "@/types/sensei";
 
 interface InstructorsGridProps {
@@ -6,6 +10,8 @@ interface InstructorsGridProps {
 }
 
 export function InstructorsGrid({ instructors }: InstructorsGridProps) {
+  const [selected, setSelected] = useState<Sensei | null>(null);
+
   return (
     <section className="bg-white px-6 py-20 dark:bg-white/5 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -20,10 +26,20 @@ export function InstructorsGrid({ instructors }: InstructorsGridProps) {
         </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {instructors.map((sensei) => (
-            <InstructorCard key={sensei.id} sensei={sensei} />
+            <InstructorCard
+              key={sensei.id}
+              sensei={sensei}
+              onViewProfile={setSelected}
+            />
           ))}
         </div>
       </div>
+
+      <SenseiProfileModal
+        sensei={selected}
+        open={selected !== null}
+        onClose={() => setSelected(null)}
+      />
     </section>
   );
 }

@@ -14,7 +14,7 @@ describe("ChampionshipsHallOfFame", () => {
   afterEach(cleanup);
 
   it("renders H2 containing 'Hall da Fama'", () => {
-    render(<ChampionshipsHallOfFame athletes={MOCK_ATHLETES} />);
+    render(<ChampionshipsHallOfFame athletes={MOCK_ATHLETES} athleteRankings={[]} />);
     expect(
       screen.getByRole("heading", {
         level: 2,
@@ -24,7 +24,7 @@ describe("ChampionshipsHallOfFame", () => {
   });
 
   it("renders exactly 4 athlete cards", () => {
-    render(<ChampionshipsHallOfFame athletes={MOCK_ATHLETES} />);
+    render(<ChampionshipsHallOfFame athletes={MOCK_ATHLETES} athleteRankings={[]} />);
     expect(screen.getByText("Sensei Luciano")).toBeTruthy();
     expect(screen.getByText("Ana Silva")).toBeTruthy();
     expect(screen.getByText("Pedro Santos")).toBeTruthy();
@@ -32,7 +32,7 @@ describe("ChampionshipsHallOfFame", () => {
   });
 
   it("each card renders the athlete's name as visible text", () => {
-    render(<ChampionshipsHallOfFame athletes={MOCK_ATHLETES} />);
+    render(<ChampionshipsHallOfFame athletes={MOCK_ATHLETES} athleteRankings={[]} />);
     expect(screen.getByText("Sensei Luciano")).toBeTruthy();
     expect(screen.getByText("Ana Silva")).toBeTruthy();
     expect(screen.getByText("Pedro Santos")).toBeTruthy();
@@ -40,22 +40,22 @@ describe("ChampionshipsHallOfFame", () => {
   });
 
   it("each card renders the achievement string as visible text", () => {
-    render(<ChampionshipsHallOfFame athletes={MOCK_ATHLETES} />);
+    render(<ChampionshipsHallOfFame athletes={MOCK_ATHLETES} athleteRankings={[]} />);
     expect(screen.getByText("Campeão Mundial 2022")).toBeTruthy();
     expect(screen.getByText("Campeã Brasileira 2023")).toBeTruthy();
     expect(screen.getByText("Ouro Pan-Americano")).toBeTruthy();
     expect(screen.getByText("Tricampeã Estadual")).toBeTruthy();
   });
 
-  it('"Ver todos os atletas" link is present', () => {
-    render(<ChampionshipsHallOfFame athletes={MOCK_ATHLETES} />);
+  it('"Ver todos os atletas" button is present', () => {
+    render(<ChampionshipsHallOfFame athletes={MOCK_ATHLETES} athleteRankings={[]} />);
     expect(
-      screen.getByRole("link", { name: /ver todos os atletas/i })
+      screen.getByRole("button", { name: /ver todos os atletas/i })
     ).toBeTruthy();
   });
 
   it("all 4 athlete images have non-empty alt attributes", () => {
-    render(<ChampionshipsHallOfFame athletes={MOCK_ATHLETES} />);
+    render(<ChampionshipsHallOfFame athletes={MOCK_ATHLETES} athleteRankings={[]} />);
     const images = screen.getAllByRole("img");
     const athleteImages = images.filter((img) => img.getAttribute("alt")?.length);
     expect(athleteImages.length).toBe(4);

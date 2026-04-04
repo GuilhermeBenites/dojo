@@ -47,6 +47,8 @@ export function SenseiForm({ sensei, onSuccess }: SenseiFormProps) {
     },
   });
 
+  const isFounder = form.watch("is_founder");
+
   async function onSubmit(values: SenseiFormData) {
     const formData = new FormData();
     Object.entries(values).forEach(([k, v]) => {
@@ -143,32 +145,6 @@ export function SenseiForm({ sensei, onSuccess }: SenseiFormProps) {
         />
         <FormField
           control={form.control}
-          name="quote"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Citação (opcional)</FormLabel>
-              <FormControl>
-                <Textarea rows={2} {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="organization"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Organização (opcional)</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
           name="is_founder"
           render={({ field }) => (
             <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
@@ -183,6 +159,36 @@ export function SenseiForm({ sensei, onSuccess }: SenseiFormProps) {
             </FormItem>
           )}
         />
+        {isFounder && (
+          <>
+            <FormField
+              control={form.control}
+              name="organization"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Organização</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Shotokan Karate International" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="quote"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Citação</FormLabel>
+                  <FormControl>
+                    <Textarea rows={2} {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </>
+        )}
         <FormField
           control={form.control}
           name="display_order"

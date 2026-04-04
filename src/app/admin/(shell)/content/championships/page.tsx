@@ -4,7 +4,7 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { CmsPageHeader } from "@/components/admin/cms/cms-page-header";
 import { CmsBackLink } from "@/components/admin/cms/cms-back-link";
 import { Button } from "@/components/ui/button";
-import { Plus } from "lucide-react";
+import { Plus, Star } from "lucide-react";
 import { ChampionshipsList } from "@/components/admin/cms/championships/championships-list";
 import { ChampionshipSheet } from "@/components/admin/cms/championships/championship-sheet";
 
@@ -31,12 +31,20 @@ export default async function ChampionshipsPage({ searchParams }: PageProps) {
         title="Campeonatos"
         description="Eventos e resultados"
         action={
-          <Link href="/admin/content/championships?action=new">
-            <Button size="sm">
-              <Plus className="size-4" />
-              Novo Campeonato
-            </Button>
-          </Link>
+          <div className="flex gap-2">
+            <Link href="/admin/content/championships/hall-of-fame">
+              <Button size="sm" variant="outline">
+                <Star className="size-4" />
+                Hall da Fama
+              </Button>
+            </Link>
+            <Link href="/admin/content/championships?action=new">
+              <Button size="sm">
+                <Plus className="size-4" />
+                Novo Campeonato
+              </Button>
+            </Link>
+          </div>
         }
       />
       <ChampionshipsList championships={championships ?? []} />

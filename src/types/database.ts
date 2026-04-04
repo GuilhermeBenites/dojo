@@ -64,6 +64,7 @@ export interface ChampionshipRow {
 export interface ChampionshipResultRow {
   id: string;
   championship_id: string;
+  student_id: string | null;
   athlete_name: string;
   placement: 1 | 2 | 3;
   category: string;
@@ -72,6 +73,7 @@ export interface ChampionshipResultRow {
 
 export interface HallOfFameRow {
   id: string;
+  student_id: string | null;
   name: string;
   achievement: string;
   photo_url: string | null;
@@ -168,14 +170,6 @@ export interface PaymentRow {
 
 export type PaymentInsert = Omit<PaymentRow, "id" | "created_at">;
 
-export interface LeadRow {
-  id: string;
-  name: string;
-  phone: string;
-  source: string;
-  created_at: string;
-}
-
 // -------------------------------------------------------
 // Insert types (omit generated fields when inserting)
 // -------------------------------------------------------
@@ -187,7 +181,7 @@ export type ChampionshipInsert = Omit<ChampionshipRow, "id" | "created_at">;
 export type ChampionshipResultInsert = Omit<
   ChampionshipResultRow,
   "id" | "created_at"
->;
+> & { student_id?: string | null };
 export type PlanInsert = Omit<PlanRow, "id" | "created_at" | "updated_at">;
 export type StudentInsert = Omit<
   StudentRow,
@@ -261,11 +255,6 @@ export interface Database {
         Row: StudentRow;
         Insert: StudentInsert;
         Update: Partial<StudentInsert>;
-      };
-      leads: {
-        Row: LeadRow;
-        Insert: Omit<LeadRow, "id" | "created_at">;
-        Update: never;
       };
       payments: {
         Row: PaymentRow;

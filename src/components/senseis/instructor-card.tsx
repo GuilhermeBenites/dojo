@@ -1,13 +1,13 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Sensei } from "@/types/sensei";
 
 interface InstructorCardProps {
   sensei: Sensei;
+  onViewProfile: (sensei: Sensei) => void;
 }
 
-export function InstructorCard({ sensei }: InstructorCardProps) {
+export function InstructorCard({ sensei, onViewProfile }: InstructorCardProps) {
   return (
     <article
       data-testid="instructor-card"
@@ -36,13 +36,13 @@ export function InstructorCard({ sensei }: InstructorCardProps) {
           {sensei.bio}
         </p>
         <div className="mt-auto pt-6">
-          <Link
-            href={sensei.profileHref}
+          <button
+            onClick={() => onViewProfile(sensei)}
             className="inline-flex items-center text-sm font-bold text-slate-900 transition-colors hover:text-primary dark:text-white"
           >
             Ver Perfil
             <ArrowRight className="ml-1 size-4" aria-hidden />
-          </Link>
+          </button>
         </div>
       </div>
     </article>

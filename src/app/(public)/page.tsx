@@ -4,19 +4,24 @@ import {
   BenefitsSection,
   TestimonialsSection,
 } from "@/components/home";
+import { SITE_URL } from "@/lib/constants";
 import { getTestimonials } from "@/services/testimonials";
 
 export const revalidate = 3600;
+
+const description =
+  "Disciplina, foco e autodefesa para todas as idades. Transforme sua mente e corpo com a tradição do verdadeiro Karate.";
+
 export const metadata: Metadata = {
-  title: "Dojo Luciano dos Santos Karate | Tradição & Disciplina",
-  description:
-    "Disciplina, foco e autodefesa para todas as idades. Transforme sua mente e corpo com a tradição do verdadeiro Karate.",
+  title: "Karate em Dourados MS",
+  description,
+  keywords: ["karate", "dojo", "artes marciais", "Dourados", "MS"],
   openGraph: {
-    title: "Dojo Luciano dos Santos Karate",
-    description:
-      "Disciplina, foco e autodefesa para todas as idades. Transforme sua mente e corpo com a tradição do verdadeiro Karate.",
-    type: "website",
+    title: "Karate em Dourados MS — Dojo Luciano dos Santos",
+    description,
+    url: SITE_URL,
   },
+  alternates: { canonical: SITE_URL },
 };
 
 export default async function Home() {

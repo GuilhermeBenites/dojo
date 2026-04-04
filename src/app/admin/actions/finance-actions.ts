@@ -64,15 +64,3 @@ export async function getStudentPaymentsAction(
 
   return (data ?? []) as PaymentRow[];
 }
-
-export async function deleteLeadAction(id: string): Promise<ActionResult> {
-  const supabase = await createSupabaseServerClient();
-  const { error } = await supabase.from("leads").delete().eq("id", id);
-
-  if (error) {
-    return { error: error.message };
-  }
-
-  revalidatePath("/admin/dashboard");
-  return { success: true };
-}

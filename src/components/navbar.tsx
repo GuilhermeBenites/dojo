@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Swords } from "lucide-react";
+import { Menu } from "lucide-react";
 
 import {
   Sheet,
@@ -40,9 +41,14 @@ export function Navbar() {
             href="/"
             className="flex items-center gap-2 text-slate-900 dark:text-white"
           >
-            <div className="flex items-center justify-center text-primary">
-              <Swords className="size-8" aria-hidden />
-            </div>
+            <Image
+              src="/logo.jpg"
+              alt="Dojo Luciano dos Santos"
+              width={40}
+              height={40}
+              className="rounded-full"
+              priority
+            />
             <h2 className="text-xl font-bold tracking-tight">
               Dojo Luciano dos Santos
             </h2>

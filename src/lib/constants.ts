@@ -1,5 +1,14 @@
 export const WHATSAPP_URL = "https://wa.me/5567992879411";
 
+// SEO
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://dojoludanosantos.com.br";
+export const SITE_NAME = "Dojo Luciano dos Santos Karate";
+export const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
+
+// Social
+export const INSTAGRAM_URL = "https://instagram.com/dojoludanosantos";
+
 export const ADMIN_ROUTES = {
   LOGIN: "/admin/login",
   DASHBOARD: "/admin/dashboard",

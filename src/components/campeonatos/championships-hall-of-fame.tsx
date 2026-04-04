@@ -1,11 +1,13 @@
 import Image from "next/image";
-import type { HallOfFameAthlete } from "@/types/championships";
+import type { AthleteRanking, HallOfFameAthlete } from "@/types/championships";
+import { AllAthletesButton } from "./all-athletes-button";
 
 interface ChampionshipsHallOfFameProps {
   athletes: HallOfFameAthlete[];
+  athleteRankings: AthleteRanking[];
 }
 
-export function ChampionshipsHallOfFame({ athletes }: ChampionshipsHallOfFameProps) {
+export function ChampionshipsHallOfFame({ athletes, athleteRankings }: ChampionshipsHallOfFameProps) {
   return (
     <section className="bg-background-light py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -18,18 +20,7 @@ export function ChampionshipsHallOfFame({ athletes }: ChampionshipsHallOfFamePro
               Nossos atletas de destaque e suas maiores conquistas.
             </p>
           </div>
-          <a
-            href="#"
-            className="hidden items-center gap-1 font-semibold text-primary hover:underline md:flex"
-          >
-            Ver todos os atletas
-            <span
-              className="material-symbols-outlined text-base"
-              aria-hidden="true"
-            >
-              arrow_forward
-            </span>
-          </a>
+          <AllAthletesButton athletes={athleteRankings} />
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

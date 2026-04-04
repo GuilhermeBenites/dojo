@@ -16,7 +16,7 @@ export const championshipSchema = z.object({
 
 export const championshipResultSchema = z.object({
   championship_id: z.string().uuid(),
-  athlete_name: z.string().min(2, "Nome é obrigatório").max(100),
+  student_id: z.string().uuid("Selecione um aluno"),
   placement: z.coerce.number().int().min(1).max(3),
   category: z.string().min(1, "Categoria é obrigatória").max(100),
 });

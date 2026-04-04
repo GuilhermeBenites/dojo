@@ -6,7 +6,7 @@ type UploadResult = { url: string } | { error: string };
 
 export async function uploadImageAction(
   formData: FormData,
-  bucket: "senseis" | "gallery"
+  bucket: "senseis" | "gallery" | "championships"
 ): Promise<UploadResult> {
   const file = formData.get("file");
   if (!(file instanceof File)) return { error: "Arquivo inválido" };

@@ -1,5 +1,28 @@
 export type EventStatus = "Finalizado" | string; // year string e.g. "2023"
 
+export type BeltColor =
+  | "preta"
+  | "vermelha"
+  | "marrom"
+  | "roxa"
+  | "azul"
+  | "verde"
+  | "laranja"
+  | "amarela"
+  | "branca";
+
+export type AgeCategory = "infantil" | "juvenil" | "adulto" | "master";
+
+export interface AthleteRanking {
+  id: string;
+  name: string;
+  photoSrc: string;
+  photoAlt: string;
+  belt: BeltColor;
+  ageCategory: AgeCategory;
+  medals: MedalCounts;
+}
+
 export interface MedalCounts {
   gold: number;
   silver: number;
@@ -16,6 +39,8 @@ export interface ChampionshipEvent {
   id: string;
   title: string;
   date: string; // display string e.g. "15/03/2024"
+  /** ISO 8601 date (YYYY-MM-DD) for structured data */
+  eventDateIso: string;
   location: string; // e.g. "Ginásio do Ibirapuera, São Paulo"
   status: EventStatus;
   medals: MedalCounts;

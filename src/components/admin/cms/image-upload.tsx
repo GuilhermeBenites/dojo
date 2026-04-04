@@ -10,10 +10,11 @@ const SENSEI_MAX_SIZE = 5 * 1024 * 1024; // 5 MB
 const GALLERY_MAX_SIZE = 10 * 1024 * 1024; // 10 MB
 
 interface ImageUploadProps {
-  bucket: "senseis" | "gallery";
+  bucket: "senseis" | "gallery" | "championships";
   value?: string;
   onChange: (url: string) => void;
   className?: string;
+  inputId?: string;
 }
 
 export function ImageUpload({
@@ -21,7 +22,9 @@ export function ImageUpload({
   value,
   onChange,
   className,
+  inputId,
 }: ImageUploadProps) {
+  const uploadId = inputId ?? `image-upload-${bucket}`;
   const [uploading, setUploading] = useState(false);
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState<string | null>(null);
@@ -83,7 +86,7 @@ export function ImageUpload({
         onChange={handleFileChange}
         disabled={uploading}
         className="hidden"
-        id={`image-upload-${bucket}`}
+        id={uploadId}
       />
       {value ? (
         <div className="relative inline-block">
@@ -108,7 +111,7 @@ export function ImageUpload({
         </div>
       ) : (
         <label
-          htmlFor={`image-upload-${bucket}`}
+          htmlFor={uploadId}
           className={cn(
             "flex h-24 w-24 cursor-pointer flex-col items-center justify-center gap-2 rounded-md border-2 border-dashed border-muted-foreground/25 bg-muted/50 transition-colors hover:bg-muted",
             uploading && "pointer-events-none opacity-70"

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
@@ -26,28 +25,28 @@ import {
   type ChampionshipResultFormData,
 } from "@/lib/validations/championship-schema";
 import { createResultAction } from "@/app/admin/actions/championships-actions";
+import { StudentCombobox } from "@/components/admin/student-combobox";
 
 interface ResultRowFormProps {
   championshipId: string;
+  students: { id: string; name: string }[];
 }
 
-export function ResultRowForm({ championshipId }: ResultRowFormProps) {
-  const [loading, setLoading] = useState(false);
+export function ResultRowForm({ championshipId, students }: ResultRowFormProps) {
   const form = useForm<ChampionshipResultFormData>({
     resolver: zodResolver(championshipResultSchema),
     defaultValues: {
       championship_id: championshipId,
-      athlete_name: "",
+      student_id: "",
       placement: 1,
       category: "",
     },
   });
 
   async function onSubmit(values: ChampionshipResultFormData) {
-    setLoading(true);
     const formData = new FormData();
     formData.set("championship_id", championshipId);
-    formData.set("athlete_name", values.athlete_name);
+    formData.set("student_id", values.student_id);
     formData.set("placement", String(values.placement));
     formData.set("category", values.category);
 
@@ -57,14 +56,13 @@ export function ResultRowForm({ championshipId }: ResultRowFormProps) {
       toast.success("Resultado adicionado");
       form.reset({
         championship_id: championshipId,
-        athlete_name: "",
+        student_id: "",
         placement: 1,
         category: "",
       });
     } else {
       toast.error("error" in result ? result.error : "Erro");
     }
-    setLoading(false);
   }
 
   return (
@@ -77,12 +75,16 @@ export function ResultRowForm({ championshipId }: ResultRowFormProps) {
         >
           <FormField
             control={form.control}
-            name="athlete_name"
+            name="student_id"
             render={({ field }) => (
               <FormItem className="flex-1 min-w-[200px]">
-                <FormLabel>Atleta</FormLabel>
+                <FormLabel>Aluno</FormLabel>
                 <FormControl>
-                  <Input placeholder="Nome do atleta" {...field} />
+                  <StudentCombobox
+                    students={students}
+                    value={field.value}
+                    onChange={(id) => field.onChange(id)}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -126,7 +128,7 @@ export function ResultRowForm({ championshipId }: ResultRowFormProps) {
               </FormItem>
             )}
           />
-          <Button type="submit" disabled={loading}>
+          <Button type="submit" disabled={form.formState.isSubmitting}>
             Adicionar
           </Button>
         </form>

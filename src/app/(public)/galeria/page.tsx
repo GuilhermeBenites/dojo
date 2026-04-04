@@ -1,19 +1,29 @@
 import type { Metadata } from "next";
 import { GalleryMasonryGrid } from "@/components/galeria/gallery-masonry-grid";
 import { GaleriaCta } from "@/components/galeria/gallery-cta";
+import { SITE_URL } from "@/lib/constants";
 import { getGalleryImages } from "@/services/gallery";
 
 export const revalidate = 3600;
+
+const description =
+  "Veja fotos das aulas, cerimônias de faixa, eventos e o ambiente do Dojo Luciano dos Santos. Arte marcial, disciplina e comunidade em Campo Grande - MS.";
+
+const ogDescription =
+  "Fotos das aulas, cerimônias de faixa e eventos do Dojo Luciano dos Santos.";
+
+const canonical = `${SITE_URL}/galeria`;
+
 export const metadata: Metadata = {
-  title: "Galeria | Dojo Luciano dos Santos",
-  description:
-    "Veja fotos das aulas, cerimônias de faixa, eventos e o ambiente do Dojo Luciano dos Santos. Arte marcial, disciplina e comunidade em Campo Grande - MS.",
+  title: "Galeria de Fotos",
+  description,
+  keywords: ["galeria karate", "fotos dojo"],
   openGraph: {
-    title: "Galeria | Dojo Luciano dos Santos",
-    description:
-      "Fotos das aulas, cerimônias de faixa e eventos do Dojo Luciano dos Santos.",
-    type: "website",
+    title: "Galeria de Fotos",
+    description: ogDescription,
+    url: canonical,
   },
+  alternates: { canonical },
 };
 
 export default async function GaleriaPage() {

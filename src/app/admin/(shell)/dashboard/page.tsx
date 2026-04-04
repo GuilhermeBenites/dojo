@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getBirthdaysThisMonth } from "@/services/students";
-import { getDashboardStats, getRecentLeads } from "@/services/dashboard";
+import { getDashboardStats } from "@/services/dashboard";
 import { KpiCard } from "@/components/admin/dashboard/kpi-card";
-import { RecentLeadsList } from "@/components/admin/dashboard/recent-leads-list";
 
 export const metadata: Metadata = { title: "Dashboard | Admin Dojo" };
 
@@ -14,10 +12,7 @@ export default async function DashboardPage() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const [birthdays, recentLeads] = await Promise.all([
-    getBirthdaysThisMonth(),
-    getRecentLeads(5),
-  ]);
+  const birthdays = await getBirthdaysThisMonth();
 
   const stats = await getDashboardStats(birthdays.length);
 
@@ -40,10 +35,6 @@ export default async function DashboardPage() {
           href="/admin/students"
         />
         <KpiCard
-          label="Novos Leads (mês)"
-          value={stats.newLeadsThisMonth}
-        />
-        <KpiCard
           label="Aniversariantes"
           value={stats.birthdaysThisMonth}
           href="/admin/students"
@@ -57,18 +48,6 @@ export default async function DashboardPage() {
         />
       </div>
 
-      <div>
-        <div className="flex items-center justify-between mb-3">
-          <h2 className="text-lg font-semibold">Leads Recentes</h2>
-          <Link
-            href="/admin/finance"
-            className="text-sm text-muted-foreground hover:underline"
-          >
-            Ver financeiro →
-          </Link>
-        </div>
-        <RecentLeadsList leads={recentLeads} />
-      </div>
     </div>
   );
 }
