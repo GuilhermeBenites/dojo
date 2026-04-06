@@ -52,7 +52,7 @@ export function ScheduleForm({ schedule, onSuccess }: ScheduleFormProps) {
   async function onSubmit(values: ScheduleFormData) {
     const formData = new FormData();
     Object.entries(values).forEach(([k, v]) =>
-      formData.set(k, String(v ?? ""))
+      formData.set(k, String(v ?? "")),
     );
 
     const result = schedule
@@ -130,10 +130,7 @@ export function ScheduleForm({ schedule, onSuccess }: ScheduleFormProps) {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Categoria</FormLabel>
-              <Select
-                onValueChange={field.onChange}
-                defaultValue={field.value}
-              >
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue />
@@ -175,7 +172,9 @@ export function ScheduleForm({ schedule, onSuccess }: ScheduleFormProps) {
           )}
         />
         <div className="flex gap-2 pt-4">
-          <Button type="submit">Salvar</Button>
+          <Button type="submit" disabled={form.formState.isSubmitting}>
+            Salvar
+          </Button>
           <Button type="button" variant="outline" onClick={onSuccess}>
             Cancelar
           </Button>

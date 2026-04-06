@@ -50,33 +50,35 @@ export function ChampionshipsEventCard({
             <h3 className="text-xl font-bold text-neutral-dark">{event.title}</h3>
             <p className="mt-1 text-sm text-neutral-dark/60">{event.location}</p>
           </div>
-          {/* Medal summary */}
-          <div className="flex gap-4">
-            <div className="text-center">
-              <span className="block text-2xl font-bold text-yellow-500">
-                {event.medals.gold}
-              </span>
-              <span className="text-[10px] font-bold uppercase text-slate-400">
-                Ouros
-              </span>
+          {/* Medal summary — only for completed/ongoing events */}
+          {event.status !== "Futuro" && (
+            <div className="flex gap-4">
+              <div className="text-center">
+                <span className="block text-2xl font-bold text-yellow-500">
+                  {event.medals.gold}
+                </span>
+                <span className="text-[10px] font-bold uppercase text-slate-400">
+                  Ouros
+                </span>
+              </div>
+              <div className="text-center">
+                <span className="block text-2xl font-bold text-slate-400">
+                  {event.medals.silver}
+                </span>
+                <span className="text-[10px] font-bold uppercase text-slate-400">
+                  Pratas
+                </span>
+              </div>
+              <div className="text-center">
+                <span className="block text-2xl font-bold text-orange-400">
+                  {event.medals.bronze}
+                </span>
+                <span className="text-[10px] font-bold uppercase text-slate-400">
+                  Bronzes
+                </span>
+              </div>
             </div>
-            <div className="text-center">
-              <span className="block text-2xl font-bold text-slate-400">
-                {event.medals.silver}
-              </span>
-              <span className="text-[10px] font-bold uppercase text-slate-400">
-                Pratas
-              </span>
-            </div>
-            <div className="text-center">
-              <span className="block text-2xl font-bold text-orange-400">
-                {event.medals.bronze}
-              </span>
-              <span className="text-[10px] font-bold uppercase text-slate-400">
-                Bronzes
-              </span>
-            </div>
-          </div>
+          )}
         </div>
 
         {/* Individual results */}

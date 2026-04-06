@@ -52,13 +52,6 @@ function toMedalCards(stats: DojoStatsRow): MedalCounterCard[] {
       iconColorClass: "text-orange-400",
       cardVariant: "default",
     },
-    {
-      label: "Troféus Gerais",
-      count: stats.total_trophies,
-      iconName: "emoji_events",
-      iconColorClass: "text-white",
-      cardVariant: "primary",
-    },
   ];
 }
 
@@ -128,7 +121,7 @@ function computeHallOfFame(
       achievement,
       achievementColorClass: HOF_COLORS[index] ?? "text-white",
       photoSrc: hof?.photo_url ?? "/images/campeonatos/placeholder.jpg",
-      photoAlt: `${name} com troféu`,
+      photoAlt: `${name} com medalha`,
     };
   });
 }

@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Quote, Mail } from "lucide-react";
+import { Quote } from "lucide-react";
 import type { FounderSensei } from "@/types/sensei";
 
 interface FounderHeroProps {
@@ -72,21 +71,6 @@ export function FounderHero({ founder }: FounderHeroProps) {
               </footer>
             </blockquote>
 
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Link
-                href="#"
-                className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-4 text-base font-bold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-red-700 hover:shadow-xl"
-              >
-                Conheça a História Completa
-              </Link>
-              <Link
-                href="mailto:contato@dojo.com.br"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary/20 bg-transparent px-8 py-4 text-base font-bold text-slate-900 transition-all hover:border-primary hover:bg-primary/5 dark:text-white"
-              >
-                <Mail className="size-5" aria-hidden />
-                Fale com o Mestre
-              </Link>
-            </div>
           </div>
         </div>
       </div>

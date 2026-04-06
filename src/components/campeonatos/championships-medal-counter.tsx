@@ -9,8 +9,8 @@ export function ChampionshipsMedalCounter({ card }: ChampionshipsMedalCounterPro
     <div
       className={
         card.cardVariant === "primary"
-          ? "flex flex-col items-center rounded-2xl bg-primary p-6 text-center shadow-lg shadow-primary/20"
-          : "flex flex-col items-center rounded-2xl border border-white/10 bg-white/10 p-6 text-center backdrop-blur-sm"
+          ? "flex w-40 flex-col items-center rounded-2xl bg-primary p-6 text-center shadow-lg shadow-primary/20"
+          : "flex w-40 flex-col items-center rounded-2xl border border-white/10 bg-white/10 p-6 text-center backdrop-blur-sm"
       }
     >
       <span

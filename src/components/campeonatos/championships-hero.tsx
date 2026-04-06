@@ -44,8 +44,8 @@ export function ChampionshipsHero({ cards }: ChampionshipsHeroProps) {
           superação.
         </p>
 
-        {/* Medal counters: 2 cols on mobile, 4 on lg */}
-        <div className="grid w-full max-w-4xl grid-cols-2 gap-4 lg:grid-cols-4">
+        {/* Medal counters */}
+        <div className="flex w-full max-w-2xl flex-wrap justify-center gap-4">
           {cards.map((card) => (
             <ChampionshipsMedalCounter key={card.label} card={card} />
           ))}

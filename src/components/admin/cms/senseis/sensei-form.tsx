@@ -203,7 +203,7 @@ export function SenseiForm({ sensei, onSuccess }: SenseiFormProps) {
           )}
         />
         <div className="flex gap-2 pt-4">
-          <Button type="submit">Salvar</Button>
+          <Button type="submit" disabled={form.formState.isSubmitting}>Salvar</Button>
           <Button type="button" variant="outline" onClick={onSuccess}>
             Cancelar
           </Button>

@@ -95,7 +95,7 @@ function DropInRow({ item }: { item: DropInClassRow }) {
             </FormItem>
           )}
         />
-        <Button type="submit" size="icon">
+        <Button type="submit" size="icon" disabled={form.formState.isSubmitting}>
           <Check className="size-4" />
         </Button>
       </form>
