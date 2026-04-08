@@ -14,12 +14,13 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
 
 type ActionResult = { success: true } | { error: string };
 
 interface DeleteConfirmDialogProps {
-  trigger: ReactNode;
+  trigger?: ReactNode;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
   title: string;
   description: string;
   action: () => Promise<ActionResult>;
@@ -28,13 +29,19 @@ interface DeleteConfirmDialogProps {
 
 export function DeleteConfirmDialog({
   trigger,
+  open: controlledOpen,
+  onOpenChange: controlledOnOpenChange,
   title,
   description,
   action,
   onSuccess,
 }: DeleteConfirmDialogProps) {
-  const [open, setOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : internalOpen;
+  const setOpen = isControlled ? controlledOnOpenChange! : setInternalOpen;
 
   async function handleConfirm() {
     setLoading(true);
@@ -56,7 +63,7 @@ export function DeleteConfirmDialog({
 
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
-      <AlertDialogTrigger asChild>{trigger}</AlertDialogTrigger>
+      {trigger && <AlertDialogTrigger asChild>{trigger}</AlertDialogTrigger>}
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>{title}</AlertDialogTitle>

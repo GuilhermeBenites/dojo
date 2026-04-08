@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import {
   DropdownMenu,
@@ -27,6 +28,9 @@ interface SchedulesListProps {
 }
 
 export function SchedulesList({ schedules }: SchedulesListProps) {
+  const [deleteId, setDeleteId] = useState<string | null>(null);
+  const scheduleToDelete = schedules.find((s) => s.id === deleteId) ?? null;
+
   if (schedules.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center rounded-lg border border-dashed p-12 text-center">
@@ -41,6 +45,7 @@ export function SchedulesList({ schedules }: SchedulesListProps) {
   }
 
   return (
+    <>
     <div className="rounded-md border">
       <Table>
         <TableHeader>
@@ -83,19 +88,13 @@ export function SchedulesList({ schedules }: SchedulesListProps) {
                         Editar
                       </Link>
                     </DropdownMenuItem>
-                    <DeleteConfirmDialog
-                      trigger={
-                        <DropdownMenuItem
-                          className="text-destructive focus:text-destructive"
-                        >
-                          <Trash2 className="size-4" />
-                          Excluir
-                        </DropdownMenuItem>
-                      }
-                      title="Excluir horário"
-                      description="Tem certeza? Esta ação não pode ser desfeita."
-                      action={() => deleteScheduleAction(s.id)}
-                    />
+                    <DropdownMenuItem
+                      className="text-destructive focus:text-destructive"
+                      onSelect={() => setDeleteId(s.id)}
+                    >
+                      <Trash2 className="size-4" />
+                      Excluir
+                    </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </TableCell>
@@ -104,5 +103,17 @@ export function SchedulesList({ schedules }: SchedulesListProps) {
         </TableBody>
       </Table>
     </div>
+    <DeleteConfirmDialog
+      open={deleteId !== null}
+      onOpenChange={(open) => { if (!open) setDeleteId(null); }}
+      title="Excluir horário"
+      description={
+        scheduleToDelete
+          ? `Tem certeza que deseja excluir "${scheduleToDelete.day_label} ${scheduleToDelete.time_start}"? Esta ação não pode ser desfeita.`
+          : "Tem certeza? Esta ação não pode ser desfeita."
+      }
+      action={() => deleteScheduleAction(deleteId!)}
+    />
+    </>
   );
 }
