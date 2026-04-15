@@ -8,6 +8,7 @@ export const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
 
 // Social
 export const INSTAGRAM_URL = "https://instagram.com/dojoludanosantos";
+export const FACEBOOK_URL = "https://www.facebook.com/lucianodossantoskarate";
 
 export const ADMIN_ROUTES = {
   LOGIN: "/admin/login",
